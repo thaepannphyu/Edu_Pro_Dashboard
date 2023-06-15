@@ -5,6 +5,11 @@
 }
 .title {
   color: #ffffff;
+  font-size: 16px;
+}
+.tableTitle {
+  font-size: 10.8px;
+  color: #ffffffd9;
 }
 .subtitle {
   color: #ffffffd9;
