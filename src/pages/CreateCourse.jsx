@@ -7,7 +7,7 @@ const CreateCourse = () => {
       <div className="flex justify-center items-center">
         <div className=" w-[97%] max-[900px]:w-[95% max-[900px]:w-[94%] max-[600px]:w-[92%] my-6 bgTransparent">
           <form className=" mx-10 mb-16">
-            <h1 className=" text-3xl text-white my-10 max-[390px]:text-2xl">Create New Course</h1>
+            <h1 className=" text-3xl text-white my-10 max-[390px]:text-2xl max-[335px]:text-xl ">Create New Course</h1>
             <div className=" flex flex-col">
               <div className=" flex max-[900px]:flex-col gap-9 items-center max-[900px]:items-start">
                 <div className=" w-[30%] max-[900px]:w-[50%] max-[700px]:w-[70%] max-[600px]:w-[80%] max-[500px]:w-[100%]">
@@ -44,7 +44,7 @@ const CreateCourse = () => {
               </div>
             </div>
 
-              <button className=" py-4 px-20 bg-[rgba(255,255,255,.125)] text-lg rounded-md text-white border">Create</button>
+              <button className=" py-4 px-20 max-[400px]:py-3 max-[400px]:px-14 bg-[rgba(255,255,255,.125)] text-lg rounded-md text-white border">Create</button>
           </form>
 
         </div>
