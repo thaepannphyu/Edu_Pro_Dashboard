@@ -1,11 +1,12 @@
 import React from "react";
 import Path from "./route/Path";
 import "./App.css";
+import backgroundImage from './assets/bg-img/2.png';
 
 const App = () => {
   return (
     <div style={{
-      backgroundImage : `url("https://themewagon.github.io/dashtreme/assets/images/bg-themes/1.png")`,
+      backgroundImage: `url(${backgroundImage})`,
       backgroundSize: "100% 100%",
       backgroundRepeat: "no-repeat",
       backgroundPosition: "center",
