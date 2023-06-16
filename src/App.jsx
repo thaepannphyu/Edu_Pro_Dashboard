@@ -9,7 +9,7 @@ const App = () => {
       backgroundSize: "100% 100%",
       backgroundRepeat: "no-repeat",
       backgroundPosition: "center",
-    }}>
+    }} className="">
       <Path />
     </div>
   );
