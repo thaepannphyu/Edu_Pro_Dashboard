@@ -4,6 +4,7 @@ import Dashboard from "../pages/Dashboard";
 import Register from "../pages/Register";
 import Login from "../pages/Login";
 import ResetPassword from "../pages/ResetPassword";
+import CreateCourse from "../pages/CreateCourse";
 
 const Path = () => {
   return (
@@ -14,6 +15,7 @@ const Path = () => {
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
           <Route path="/resetPassword" element={<ResetPassword />} />
+          <Route path="/createCourse" element={<CreateCourse />} />
         </Routes>
       </BrowserRouter>
     </div>
