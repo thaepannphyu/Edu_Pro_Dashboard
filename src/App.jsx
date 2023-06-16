@@ -9,7 +9,7 @@ const App = () => {
       backgroundSize: "100% 100%",
       backgroundRepeat: "no-repeat",
       backgroundPosition: "center",
-    }} className=" h-screen">
+    }} className="">
       <Path />
     </div>
   );
