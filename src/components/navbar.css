@@ -1,0 +1,98 @@
+.putField {
+  width: 450px;
+  display: flex;
+  justify-content: space-between;
+}
+
+@media (max-width: 750px) {
+  .putField {
+    width: 300px;
+  }
+}
+@media (min-width: 1300px) {
+  .putField {
+    width: 500px;
+  }
+}
+@media (min-width: 900px) {
+  .putField {
+    width: 300px;
+  }
+}
+
+@media (max-width: 600px) {
+  .putField {
+    width: 200px;
+  }
+}
+@media (max-width: 330px) {
+  .putField {
+    width: 190px;
+  }
+}
+
+.icons {
+  margin: 0 200px;
+  position: absolute;
+  right: -60px;
+  gap: 40%;
+}
+@media (max-width: 500px) {
+  .icons {
+    visibility: hidden;
+    position: absolute;
+    left: -1000px;
+  }
+}
+
+@media (min-width: 900px) {
+  .navW {
+    left: 230px;
+    width: 85%;
+  }
+}
+
+@media (max-width: 900px) {
+  .navW {
+    width: 100%;
+  }
+}
+
+@media (min-width: 900px) {
+  .icons {
+    right: 40px;
+  }
+}
+.pfp {
+  position: absolute;
+  right: 10px;
+}
+@media (min-width: 900px) {
+  .pfp {
+    position: absolute;
+    right: 120px;
+  }
+}
+@media (min-width: 1300px) {
+  .pfp {
+    right: 80px;
+  }
+}
+
+.navbar {
+  transition: background-color 0.3s ease;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  z-index: 999;
+}
+
+.bg-transparent {
+  background-color: transparent !important;
+}
+
+.bg-blue-500 {
+  background-color: #3b82f6;
+}

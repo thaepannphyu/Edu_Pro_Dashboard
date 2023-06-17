@@ -1,9 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import Path from "./route/Path";
 import "./App.css";
+
+import Sidebar from "./components/Sidebar";
+import Navbar from "./components/Navbar";
+
+const App = () => {
+  
+
+  
+
 import { useSelector } from "react-redux";
 
 const App = () => {
+  const [isSidebarOpen, setSidebarOpen] = useState(true);
+  const toggleSidebar = () => {
+    setSidebarOpen(!isSidebarOpen);
+  };
   const bgTexture = useSelector(state => state.themeSlice.bgTexture)
 //   console.log(bgTexture.length);
   return (
@@ -29,7 +42,13 @@ const App = () => {
         backgroundPosition: "center",
         transition: bgTexture ? "background-image 0.5s ease-in-out" : "",
       }}>
-        <Path />
+        <div className=" flex">
+        <Sidebar isOpen={isSidebarOpen} />
+
+        <Navbar toggleSidebar={toggleSidebar} isOpen={isSidebarOpen} />
+         <Path /> 
+      </div>
+
 
     </div>
     )}
