@@ -19,6 +19,11 @@ const Path = () => {
           <Route path="/createCourse" element={<CreateCourse />} />
           {/* <Route path="/theme" element={<Theme />} /> */}
         </Routes>
+
+        <Routes>
+          <Route path="/profile" element={<Profile />} />
+        </Routes>
+
         <Theme/>
       </BrowserRouter>
     </div>

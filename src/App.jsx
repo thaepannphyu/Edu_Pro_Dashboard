@@ -7,6 +7,8 @@ const App = () => {
   const bgTexture = useSelector(state => state.themeSlice.bgTexture)
 //   console.log(bgTexture.length);
   return (
+
+
     <>
     {bgTexture.length < 25 ? (
       <div className="" style={{
