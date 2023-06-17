@@ -5,6 +5,7 @@ import Register from "../pages/Register";
 import Login from "../pages/Login";
 import ResetPassword from "../pages/ResetPassword";
 import CreateCourse from "../pages/CreateCourse";
+import Theme from "../components/Theme";
 
 const Path = () => {
   return (
@@ -16,7 +17,9 @@ const Path = () => {
           <Route path="/login" element={<Login />} />
           <Route path="/resetPassword" element={<ResetPassword />} />
           <Route path="/createCourse" element={<CreateCourse />} />
+          {/* <Route path="/theme" element={<Theme />} /> */}
         </Routes>
+        <Theme/>
       </BrowserRouter>
     </div>
   );
