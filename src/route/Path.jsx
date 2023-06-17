@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Dashboard from "../pages/Dashboard";
+import Dashboard from "../pages/Dashboard"; 
 import Register from "../pages/Register";
 import Login from "../pages/Login";
 import ResetPassword from "../pages/ResetPassword";
@@ -18,13 +18,8 @@ const Path = () => {
           <Route path="/login" element={<Login />} />
           <Route path="/resetPassword" element={<ResetPassword />} />
           <Route path="/createCourse" element={<CreateCourse />} />
-          {/* <Route path="/theme" element={<Theme />} /> */}
-        </Routes>
-
-        <Routes>
           <Route path="/profile" element={<Profile />} />
         </Routes>
-
         <Theme />
       </BrowserRouter>
     </div>
