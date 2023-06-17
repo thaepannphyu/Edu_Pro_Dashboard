@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 
 const App = () => {
   const bgTexture = useSelector(state => state.themeSlice.bgTexture)
-  console.log(bgTexture.length);
+//   console.log(bgTexture.length);
   return (
     <>
     {bgTexture.length < 25 ? (
@@ -28,11 +28,9 @@ const App = () => {
         transition: bgTexture ? "background-image 0.5s ease-in-out" : "",
       }}>
         <Path />
+
     </div>
     )}
-    
-    
-    
     </>
     
   );
