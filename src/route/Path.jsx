@@ -9,10 +9,12 @@ import Theme from "../components/Theme";
 import Profile from "../components/Profile/Profile";
 
 const Path = () => {
+  
   return (
     <div>
       <BrowserRouter>
         <Routes>
+          
           <Route path="/" element={<Dashboard />} />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
