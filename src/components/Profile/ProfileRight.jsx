@@ -25,9 +25,7 @@ const ProfileRight = () => {
                open == 0 ? "border-b-2" : ""
              } py-5 `}>
             <TfiUser
-              className={`hidden md:block lg:block  title ${
-                open == 0 ? "text-blue-500" : ""
-              }`}
+              className={`  title ${open == 0 ? "text-blue-500" : ""}`}
             />
             <p
               className={`hidden md:block lg:block  title ${
@@ -42,9 +40,7 @@ const ProfileRight = () => {
               open == 1 ? "border-b-2" : ""
             } py-5 `}>
             <HiOutlineMailOpen
-              className={`hidden md:block lg:block  title ${
-                open == 1 ? "text-blue-500" : ""
-              }`}
+              className={`  title ${open == 1 ? "text-blue-500" : ""}`}
             />
             <p
               className={`hidden md:block lg:block  title ${
@@ -58,11 +54,7 @@ const ProfileRight = () => {
             className={` w-1/3 title flex gap-y-2  border-b-blue-500 flex-col justify-center items-center ${
               open == 2 ? "border-b-2" : ""
             } py-5 `}>
-            <LuEdit
-              className={`hidden md:block lg:block  title ${
-                open == 2 ? "text-blue-500" : ""
-              }`}
-            />
+            <LuEdit className={`  title ${open == 2 ? "text-blue-500" : ""}`} />
             <p
               className={`hidden md:block lg:block  title ${
                 open == 2 ? "text-blue-500" : ""
@@ -169,7 +161,7 @@ const ProfileRight = () => {
           </div>
         </div>
 
-        <div className={`w-full ${open == 1 ? "" : "hidden"}`}>
+        <div className={`p-3 w-full ${open == 1 ? "" : "hidden"}`}>
           {/* title */}
           <div
             className={`${
@@ -208,7 +200,7 @@ const ProfileRight = () => {
         <div className={`p-3 w-full ${open == 2 ? "" : "hidden"} `}>
           <form id="formProfileChange" className=" flex flex-col gap-y-4">
             {/* firstName */}
-            <div className=" flex justify-between items-center ">
+            <div className=" flex justify-between items-center flex-col lg:flex-row md:flex-row">
               <label className=" title">First Name</label>
               <input
                 type="text"
@@ -217,7 +209,7 @@ const ProfileRight = () => {
               />
             </div>
             {/* lastName */}
-            <div className=" flex justify-between items-center">
+            <div className=" flex justify-between items-center  flex-col lg:flex-row md:flex-row">
               <label className=" title">Last Name</label>
               <input
                 type="text"
@@ -227,7 +219,7 @@ const ProfileRight = () => {
               />
             </div>
             {/* Email */}
-            <div className=" flex justify-between items-center">
+            <div className=" flex justify-between items-center  flex-col lg:flex-row md:flex-row">
               <label className=" title">Email</label>
               <input
                 type="email"
@@ -237,7 +229,7 @@ const ProfileRight = () => {
               />
             </div>
             {/* ChangeProfile */}
-            <div className=" flex justify-between items-center">
+            <div className=" flex justify-between items-center  flex-col lg:flex-row md:flex-row">
               <label className=" title">Change Profile</label>
               <input
                 type="file"
@@ -246,7 +238,7 @@ const ProfileRight = () => {
               />
             </div>
             {/* Website */}
-            <div className=" flex justify-between items-center">
+            <div className=" flex justify-between items-center  flex-col lg:flex-row md:flex-row">
               <label className=" title">Website</label>
               <input
                 type="text"
@@ -256,7 +248,7 @@ const ProfileRight = () => {
               />
             </div>
             {/* Address */}
-            <div className=" flex justify-between  flex-wrap">
+            <div className=" flex justify-between lg:items-start md:items-start items-center flex-wrap  flex-col lg:flex-row md:flex-row">
               <label className=" title">Address</label>
               <div className="w-[75%] flex justify-between items-center flex-wrap gap-y-4">
                 <input
@@ -267,20 +259,20 @@ const ProfileRight = () => {
                 />
                 <input
                   type="text"
-                  className=" w-[60%] py-2 formInputColor placeholder-slate-200 rounded outline-none cursor-text px-4 hover:outline-slate-400
+                  className=" lg:w-[60%] md:w-[60%] w-full py-2 formInputColor placeholder-slate-200 rounded outline-none cursor-text px-4 hover:outline-slate-400
                 "
                   placeholder=" City "
                 />
                 <input
                   type="text"
-                  className=" w-[37%] py-2 formInputColor placeholder-slate-200 rounded outline-none cursor-text px-4 hover:outline-slate-400
+                  className=" lg:w-[37%] md:w-[37%] w-full py-2 formInputColor placeholder-slate-200 rounded outline-none cursor-text px-4 hover:outline-slate-400
                 "
                   placeholder=" State "
                 />
               </div>
             </div>
             {/* UserName */}
-            <div className=" flex justify-between items-center">
+            <div className=" flex justify-between items-center  flex-col lg:flex-row md:flex-row">
               <label className=" title">User Name</label>
               <input
                 type="text"
@@ -290,7 +282,7 @@ const ProfileRight = () => {
               />
             </div>
             {/* PAssword */}
-            <div className=" flex justify-between items-center">
+            <div className=" flex justify-between items-center  flex-col lg:flex-row md:flex-row">
               <label className=" title">Password</label>
               <input
                 type="password"
@@ -300,7 +292,7 @@ const ProfileRight = () => {
               />
             </div>
             {/*Comfiem PAssword */}
-            <div className=" flex justify-between items-center">
+            <div className=" flex justify-between items-center  flex-col lg:flex-row md:flex-row">
               <label className=" title">Comfirm Password</label>
               <input
                 type="password"
@@ -309,7 +301,7 @@ const ProfileRight = () => {
                 placeholder="........"
               />
             </div>
-            <div className="w-[75%] flex justify-center gap-6">
+            <div className="w-[75%] flex justify-center gap-6 ">
               <div
                 type="submit"
                 className="select-none hover:bg-blue-950 py-2 px-4 bg-blue-900 title rounded inline-block"
