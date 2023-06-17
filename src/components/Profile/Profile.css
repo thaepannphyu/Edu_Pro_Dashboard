@@ -11,10 +11,9 @@
 }
 
 .borderDesign {
-  border-right: 775px solid transparent;
-
-  border-top: 247px solid transparent;
-  opacity: 0.5;
+  transform: rotate(-19deg);
+  width: 900px;
+  height: 250px;
 }
 .borderCustom {
   border-width: 0px 0px 1px 0px;

@@ -7,6 +7,7 @@ import ResetPassword from "../pages/ResetPassword";
 import CreateCourse from "../pages/CreateCourse";
 import Theme from "../components/Theme";
 import Profile from "../components/Profile/Profile";
+
 const Path = () => {
   return (
     <div>
@@ -24,7 +25,7 @@ const Path = () => {
           <Route path="/profile" element={<Profile />} />
         </Routes>
 
-        <Theme/>
+        <Theme />
       </BrowserRouter>
     </div>
   );
