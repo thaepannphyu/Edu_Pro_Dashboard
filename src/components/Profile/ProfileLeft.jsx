@@ -7,33 +7,30 @@ import ReactLogo from "../../assets/react.svg";
 import { FiFacebook, FiTwitter } from "react-icons/fi";
 import { GrGooglePlus } from "react-icons/gr";
 import men from "../../assets/istockphoto-1153387473-612x612.jpg";
-import ProfileRight from "./ProfileRight";
 
 const ProfileLeft = () => {
   return (
     <div className=" relative h-full w-full  lg:p-5 flex justify-center items-center  overflow-hidden">
       <div className=" z-50  h-[95%] w-full justify-center bgTransparent rounded">
         {/* Profile */}
-        <div className=" select-none relative lg:h-[40%] md:h-[40%] h-[30%]   w-full  overflow-hidden ">
-          <div className="relative h-[20%] w-full   ">
-            <div className="absolute top-0 right-0 w-full   h-[80%] border-t-orange-500   borderDesign"></div>
-            <div className=" absolute top-[50%] right-[27%] md:top-[50%] md:right-[38%] xsm:right-[38%] flex justify-center flex-col items-center lg:gap-y-5 gap-y-0 md:gap-y-5    lg:top-[60%] lg:right-[40%]">
-              <div className="relative h-[130px] w-[130px] flex justify-center items-center overflow-hidden   rounded-[50%] bg-pink-700 ">
-                <div className=" z-50 w-[94%] h-[94%] bg-black rounded-[50%]">
-                  <img
-                    src={men}
-                    alt=""
-                    className="w-full h-full  object-cover rounded-[50%]"
-                  />
-                </div>
-                <div className="backgroundNeon  absolute  top-0 left-0 w-full h-full"></div>
+        <div className=" select-none relative  lg:h-[40%] md:h-[43%] h-[35%]   w-full  overflow-hidden ">
+          <div className="absolute top-[-50%] right-[0%] md:h-[250px]  md:top-[-36%]   bg-orange-500 borderDesign"></div>
+          <div className=" lg:absolute md:absolute lg:pt-0 md:pt-0 pt-6 right-[30%] top-[20%]  md:top-[20%] md:right-[40%]  flex justify-center flex-col items-center lg:gap-y-5 gap-y-0 md:gap-y-5    lg:top-[10%] lg:right-[40%]">
+            <div className="relative h-[130px] w-[130px] flex justify-center items-center overflow-hidden   rounded-[50%] bg-pink-700 ">
+              <div className=" z-50 w-[94%] h-[94%] bg-black rounded-[50%]">
+                <img
+                  src={men}
+                  alt=""
+                  className="w-full h-full  object-cover rounded-[50%]"
+                />
               </div>
-              <h1 className=" text-blue-500 text-xl">Holy </h1>
-              <div className="   flex justify-center gap-8 items-center">
-                <FiFacebook className=" text-orange-500 text-xl" />
-                <FiTwitter className=" text-orange-500 text-lg" />
-                <GrGooglePlus className=" text-orange-500 text-2xl" />
-              </div>
+              <div className="backgroundNeon  absolute  top-0 left-0 w-full h-full"></div>
+            </div>
+            <h1 className=" text-blue-500 text-xl">Holy </h1>
+            <div className="   flex justify-center gap-8 items-center">
+              <FiFacebook className=" text-orange-500 text-xl" />
+              <FiTwitter className=" text-orange-500 text-lg" />
+              <GrGooglePlus className=" text-orange-500 text-2xl" />
             </div>
           </div>
         </div>
