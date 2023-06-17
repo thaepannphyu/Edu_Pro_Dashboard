@@ -15,7 +15,7 @@ const ProfileRight = () => {
   const [close, setClose] = useState(false);
   return (
     <div className=" w-full h-auto   lg:p-5 flex justify-center items-center  overflow-hidden">
-      <div className=" z-50  h-[95%] w-full justify-center bgTransparent  rounded lg:p-5">
+      <div className="h-[95%] w-full justify-center bgTransparent  rounded lg:p-5">
         {/* headerTitle */}
         <div className="flex  justify-between items-center  borderCustom">
           <div
@@ -25,12 +25,12 @@ const ProfileRight = () => {
                open == 0 ? "border-b-2" : ""
              } py-5 `}>
             <TfiUser
-              className={`hidden md:block lg:block  title ${
+              className={`hidden cursor-pointer md:block lg:block  title ${
                 open == 0 ? "text-blue-500" : ""
               }`}
             />
             <p
-              className={`hidden md:block lg:block  title ${
+              className={`hidden cursor-pointer md:block lg:block  title ${
                 open == 0 ? "text-blue-500" : ""
               }`}>
               PROFILE
@@ -42,12 +42,12 @@ const ProfileRight = () => {
               open == 1 ? "border-b-2" : ""
             } py-5 `}>
             <HiOutlineMailOpen
-              className={`hidden md:block lg:block  title ${
+              className={`hidden md:block cursor-pointer lg:block  title ${
                 open == 1 ? "text-blue-500" : ""
               }`}
             />
             <p
-              className={`hidden md:block lg:block  title ${
+              className={`hidden md:block cursor-pointer lg:block  title ${
                 open == 1 ? "text-blue-500" : ""
               }`}>
               MESSAGE
@@ -59,12 +59,12 @@ const ProfileRight = () => {
               open == 2 ? "border-b-2" : ""
             } py-5 `}>
             <LuEdit
-              className={`hidden md:block lg:block  title ${
+              className={`hidden md:block cursor-pointer lg:block  title ${
                 open == 2 ? "text-blue-500" : ""
               }`}
             />
             <p
-              className={`hidden md:block lg:block  title ${
+              className={`hidden md:block cursor-pointer lg:block  title ${
                 open == 2 ? "text-blue-500" : ""
               }`}>
               EDIT

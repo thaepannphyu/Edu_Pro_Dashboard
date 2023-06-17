@@ -11,7 +11,7 @@ import men from "../../assets/istockphoto-1153387473-612x612.jpg";
 const ProfileLeft = () => {
   return (
     <div className=" relative h-full w-full  lg:p-5 flex justify-center items-center  overflow-hidden">
-      <div className=" z-50  h-[95%] w-full justify-center bgTransparent rounded">
+      <div className="h-[95%] w-full justify-center bgTransparent rounded">
         {/* Profile */}
         <div className=" select-none relative  lg:h-[40%] md:h-[43%] h-[35%]   w-full  overflow-hidden ">
           <div className="absolute top-[-50%] right-[0%] md:h-[250px]  md:top-[-36%]   bg-orange-500 borderDesign"></div>
