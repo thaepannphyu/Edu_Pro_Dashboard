@@ -6,7 +6,7 @@ import Login from "../pages/Login";
 import ResetPassword from "../pages/ResetPassword";
 import CreateCourse from "../pages/CreateCourse";
 import Theme from "../components/Theme";
-
+import Profile from "../components/Profile/Profile";
 const Path = () => {
   return (
     <div>
