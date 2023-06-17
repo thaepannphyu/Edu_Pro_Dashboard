@@ -1,15 +1,8 @@
 import React, { useState } from "react";
 import Path from "./route/Path";
 import "./App.css";
-
 import Sidebar from "./components/Sidebar";
 import Navbar from "./components/Navbar";
-
-const App = () => {
-  
-
-  
-
 import { useSelector } from "react-redux";
 
 const App = () => {
