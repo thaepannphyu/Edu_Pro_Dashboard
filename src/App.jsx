@@ -24,9 +24,13 @@ const App = () => {
         backgroundPosition: "center",
         transition: bgTexture ? "background-image 0.5s ease-in-out" : "",
       }}>
-        <Path />
-    </div> 
+        <div className=" flex">
+        <Sidebar isOpen={isSidebarOpen} />
 
+        <Navbar toggleSidebar={toggleSidebar} isOpen={isSidebarOpen} />
+         <Path /> 
+         </div>
+    </div> 
     ): (
       <div className="" style={{
         backgroundImage: bgTexture ? `${bgTexture}` : `url("/src/assets/bg-img/1.png")`,
