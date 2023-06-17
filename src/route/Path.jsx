@@ -11,8 +11,9 @@ const Path = () => {
         <Routes>
           <Route path="/" element={<Dashboard />} />
           <Route path="/createCourse" element={<CreateCourse />} />
-          <Route path="/theme" element={<Theme />} />
+          {/* <Route path="/theme" element={<Theme />} /> */}
         </Routes>
+        <Theme/>
       </BrowserRouter>
     </div>
   );

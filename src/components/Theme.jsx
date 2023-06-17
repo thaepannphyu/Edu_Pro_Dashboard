@@ -7,9 +7,12 @@ import backgroundImage3 from '../assets/bg-img/3.png';
 import backgroundImage4 from '../assets/bg-img/4.png';
 import backgroundImage5 from '../assets/bg-img/5.png';
 import backgroundImage6 from '../assets/bg-img/6.png';
+import { useDispatch } from 'react-redux';
+import { addBgTexture } from '../redux/ThemeSlice';
 
 const Theme = () => {
     const [themeOpen,setThemeOpen] = useState(false)
+    const dispatch = useDispatch();
     const gaussionTexture = [
         {id: 1, name:backgroundImage1},
         {id: 2, name:backgroundImage2},
@@ -31,13 +34,15 @@ const Theme = () => {
         // {id: 15, name:"linear-gradient(45deg, #6a11cb, #2575fc)"},
     ]
   return (
-    <div className=' relative'>
-        <div className={`${themeOpen ? " right-0 opacity-100 " : "right-[-500px] opacity-0"} absolute transition-all ease-in duration-500`}>
-        <p onClick={()=> setThemeOpen(!themeOpen)} className=' cursor-pointer absolute left-[-36px] top-[250px] w-[40px] h-[40px] rounded-md flex justify-center items-center bg-black'>
+    <div className=''>
+        <p onClick={()=> setThemeOpen(!themeOpen)} className={` ${themeOpen? "right-[255px] " : "right-0" } top-[250px] cursor-pointer fixed transition-all ease-in duration-200 w-[40px] h-[40px] rounded flex justify-center items-center bg-black`}>
             <MdSettings className=' text-white text-2xl setting-icon'/>
         </p>
 
-        <div className=' bg-black w-[260px] px-2'>
+        <div className={`${themeOpen ? " right-0" : "right-[-300px]"} z-100 top-0 fixed transition-all ease-in duration-200 `} >
+        
+
+        <div className=' bg-black w-[260px] px-2 max-h-screen overflow-y-auto'>
             <div>
                 <h1 className=' text-[15px] text-[#ffffffd9] text-center py-3'>Gaussion Texture</h1>
                 <hr className=' custom-hr mb-4 mx-2' />
@@ -45,7 +50,7 @@ const Theme = () => {
                 <div className=' flex flex-wrap justify-center items-center gap-4'>
                     {gaussionTexture.map(bg => {
                         return(
-                            <div key={bg.id} className=' w-[87px] h-[75px]'>
+                            <div onClick={()=> dispatch(addBgTexture(bg.name))} key={bg.id} className=' w-[87px] h-[75px] cursor-pointer'>
                                 <img className=' w-full h-full rounded-lg' src={bg.name} alt="" />
                             </div>                                
                             )
@@ -60,8 +65,8 @@ const Theme = () => {
                 <div className=' flex flex-wrap justify-center gap-4'>
                     {gradientBackground.map(bg => {
                         return(
-                            <div key={bg.id} className=' w-[87px] h-[75px]'>
-                                <div className=' rounded-md' style={{
+                            <div onClick={()=> dispatch(addBgTexture(bg.name))} key={bg.id} className=' w-[87px] h-[75px]'>
+                                <div className=' rounded-md cursor-pointer' style={{
                                     backgroundImage: `${bg.name}`,
                                     backgroundSize: '100% 100%',
                                     backgroundRepeat: 'no-repeat',

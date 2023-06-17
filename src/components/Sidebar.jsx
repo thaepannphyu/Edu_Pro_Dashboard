@@ -59,7 +59,7 @@ const Sidebar = () => {
               </span>
             </div>
           </Link>
-          <Link to={"/forms"}>
+          <Link to={"/createCourse"}>
             <div className=" group flex items-center gap-3 hover:bg-[#ffffff33] hover:border-s-2 ps-3 py-2 ">
               <p className=" text-[#ffffffa6] text-xl group-hover:text-[#ffffff]">
                 <AiOutlineUnorderedList />

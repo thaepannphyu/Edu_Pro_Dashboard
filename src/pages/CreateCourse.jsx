@@ -1,5 +1,6 @@
 import React from "react";
 import { BiMovie } from "react-icons/bi";
+import { Link } from "react-router-dom";
 
 const CreateCourse = () => {
   return (
@@ -27,6 +28,13 @@ const CreateCourse = () => {
                             <input className=' placeholder-[#ffffffd9] focus:border-2 focus:border-[#ffffff98] focus:outline-none w-full py-3 pl-4 bg-[rgba(255,255,255,.125)] border-[#e5eaef] rounded-md' type='number' placeholder="Duration" />
                             <input className=' placeholder-[#ffffffd9] focus:border-2 focus:border-[#ffffff98] focus:outline-none w-full py-3 pl-4 bg-[rgba(255,255,255,.125)] border-[#e5eaef] rounded-md' type='number' placeholder="Lessons" />
                             <input className=' placeholder-[#ffffffd9] focus:border-2 focus:border-[#ffffff98] focus:outline-none w-full py-3 pl-4 bg-[rgba(255,255,255,.125)] border-[#e5eaef] rounded-md' type='text' placeholder="Language" />
+
+                            {/* <select className=" focus:border-2 focus:border-[#ffffff98] text-[#ffffffd9] focus:outline-none w-full py-3 px-1 bg-[rgba(255,255,255,.125)] border-[#e5eaef] rounded-md">
+                              <option className=" focus:border-2 focus:border-[#ffffff98] text-[#ffffffd9] focus:outline-none w-full py-3 pl-4 bg-[rgba(255,255,255,.125)]" value="">mm</option>
+                              <option className=" focus:border-2 focus:border-[#ffffff98] text-[#ffffffd9] focus:outline-none w-full py-3 pl-4 bg-[rgba(255,255,255,.125)]" value="">mm</option>
+                              <option className=" focus:border-2 focus:border-[#ffffff98] text-[#ffffffd9] focus:outline-none w-full py-3 pl-4 bg-[rgba(255,255,255,.125)]" value="">mm</option>
+                            </select> */}
+
                             <input className=' placeholder-[#ffffffd9] focus:border-2 focus:border-[#ffffff98] focus:outline-none w-full py-3 pl-4 bg-[rgba(255,255,255,.125)] border-[#e5eaef] rounded-md' type='number' placeholder="Price" />
                           </div>
                         </div>
@@ -44,7 +52,9 @@ const CreateCourse = () => {
               </div>
             </div>
 
+            <Link to='/'>
               <button className=" py-4 px-20 max-[400px]:py-3 max-[400px]:px-14 bg-[rgba(255,255,255,.125)] text-lg rounded-md text-white border">Create</button>
+            </Link>
           </form>
 
         </div>
