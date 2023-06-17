@@ -1,0 +1,60 @@
+.progressBackground {
+  background-color: rgba(142, 140, 140, 0.604);
+  height: 7px;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.progressBar {
+  height: 100%;
+  border-radius: 5px;
+}
+
+.borderDesign {
+  border-right: 775px solid transparent;
+
+  border-top: 247px solid transparent;
+  opacity: 0.5;
+}
+.borderCustom {
+  border-width: 0px 0px 1px 0px;
+  border-color: rgba(255, 254, 254, 0.192);
+}
+@keyframes animate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.backgroundNeon {
+  background: linear-gradient(#4155ba, #00ffff, #52d2d8, #176288);
+  animation: animate 2s infinite linear;
+}
+li:nth-child(odd) {
+  padding: 15px 2px;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+}
+li:nth-child(even) {
+  padding: 15px 2px;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+li:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+  color: #fff;
+}
+.formInputColor {
+  /* border-color: 0px solid #e5eaef; */
+  background-color: rgba(255, 255, 255, 0.2);
+  color: #fff !important;
+}
+
+@media (min-width: 351px) and (max-width: 706px) {
+  .xsm {
+    width: 100%;
+  }
+}

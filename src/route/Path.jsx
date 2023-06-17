@@ -9,6 +9,9 @@ const Path = () => {
         <Routes>
           <Route path="/" element={<Dashboard />} />
         </Routes>
+        <Routes>
+          <Route path="/profile" element={<Profile />} />
+        </Routes>
       </BrowserRouter>
     </div>
   );
