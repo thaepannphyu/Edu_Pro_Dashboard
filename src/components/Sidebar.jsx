@@ -32,33 +32,35 @@ const Sidebar = ({ isOpen }) => {
         <p className=" text-[#ffffffa6] text-[12px] uppercase ms-4">
           main navigation
         </p>
-        <div className=" group flex items-center gap-3 hover:bg-[#ffffff33] hover:border-s-2 ps-3 py-2 ">
+        <Link
+          to={"/"}
+          className=" group flex items-center gap-3 hover:bg-[#ffffff33] hover:border-s-2 ps-3 py-2 ">
           <p className=" text-[#ffffffa6] text-xl group-hover:text-[#ffffff]">
             <AiOutlineAppstore />
           </p>
-          <span
-            to={"/"}
-            className=" text-[#ffffffa6] text-[15px] group-hover:text-[#ffffff]">
+          <p className=" text-[#ffffffa6] text-[15px] group-hover:text-[#ffffff]">
             Dashboard
-          </span>
-        </div>
-        <div className=" group flex items-center gap-3 hover:bg-[#ffffff33] hover:border-s-2 ps-3 py-2 ">
+          </p>
+        </Link>
+        <Link
+          to={"/createCourse"}
+          className=" group flex items-center gap-3 hover:bg-[#ffffff33] hover:border-s-2 ps-3 py-2 ">
           <p className=" text-[#ffffffa6] text-xl group-hover:text-[#ffffff]">
             <AiOutlineUnorderedList />
           </p>
-          <span className=" text-[#ffffffa6] text-[15px] group-hover:text-[#ffffff]">
+          <p className=" text-[#ffffffa6] text-[15px] group-hover:text-[#ffffff]">
             Create Course
-          </span>
-        </div>
-        <div className=" group flex items-center gap-3 hover:bg-[#ffffff33] hover:border-s-2 ps-3 py-2 ">
+          </p>
+        </Link>
+        <Link to={'/calender'} className=" group flex items-center gap-3 hover:bg-[#ffffff33] hover:border-s-2 ps-3 py-2 ">
           <p className=" text-[#ffffffa6] text-xl group-hover:text-[#ffffff]">
             <AiOutlineCalendar />
           </p>
           <span className=" text-[#ffffffa6] text-[15px] group-hover:text-[#ffffff]">
             Calendar
           </span>
-        </div>
-        <div className=" group flex items-center gap-3 hover:bg-[#ffffff33] hover:border-s-2 ps-3 py-2 ">
+        </Link>
+        <Link to={'/profile'} className=" group flex items-center gap-3 hover:bg-[#ffffff33] hover:border-s-2 ps-3 py-2 ">
           <p className=" text-[#ffffffa6] text-xl group-hover:text-[#ffffff]">
             <RiContactsLine />
           </p>
@@ -66,43 +68,43 @@ const Sidebar = ({ isOpen }) => {
           <span className=" text-[#ffffffa6] text-[15px] group-hover:text-[#ffffff]">
             Profile
           </span>
-        </div>
-        <div className=" group flex items-center gap-3 hover:bg-[#ffffff33] hover:border-s-2 ps-3 py-2 ">
+        </Link>
+        <Link to={'/login'} className=" group flex items-center gap-3 hover:bg-[#ffffff33] hover:border-s-2 ps-3 py-2 ">
           <p className=" text-[#ffffffa6] text-xl group-hover:text-[#ffffff]">
             <AiOutlineLock />
           </p>
           <span className=" text-[#ffffffa6] text-[15px] group-hover:text-[#ffffff]">
             Login
           </span>
-        </div>
+        </Link>
 
         <hr className=" bg-slate-500 border-0 py-[0.2px] " />
 
         <p className=" text-[#ffffffa6] text-[12px] uppercase ms-4">Tables</p>
-        <div className=" group flex items-center gap-3 hover:bg-[#ffffff33] hover:border-s-2 ps-3 py-2 ">
+        <Link to={'/student'} className=" group flex items-center gap-3 hover:bg-[#ffffff33] hover:border-s-2 ps-3 py-2 ">
           <p className=" text-[#ffffffa6] text-xl group-hover:text-[#ffffff]">
             <CgProfile />
           </p>
           <span className=" text-[#ffffffa6] text-[15px] group-hover:text-[#ffffff]">
             Students List
           </span>
-        </div>
-        <div className=" group flex items-center gap-3 hover:bg-[#ffffff33] hover:border-s-2 ps-3 py-2 ">
+        </Link>
+        <Link to={'/teacher'} className=" group flex items-center gap-3 hover:bg-[#ffffff33] hover:border-s-2 ps-3 py-2 ">
           <p className=" text-[#ffffffa6] text-xl group-hover:text-[#ffffff]">
             <AiOutlineTable />
           </p>
           <span className=" text-[#ffffffa6] text-[15px] group-hover:text-[#ffffff]">
             Teacher List
           </span>
-        </div>
-        <div className=" group flex items-center gap-3 hover:bg-[#ffffff33] hover:border-s-2 ps-3 py-2 ">
+        </Link>
+        <Link to={'/courses'} className=" group flex items-center gap-3 hover:bg-[#ffffff33] hover:border-s-2 ps-3 py-2 ">
           <p className=" text-[#ffffffa6] text-xl group-hover:text-[#ffffff]">
             <GiNewspaper />
           </p>
           <span className=" text-[#ffffffa6] text-[15px] group-hover:text-[#ffffff]">
             Course List
           </span>
-        </div>
+        </Link>
       </div>
     </aside>
   );

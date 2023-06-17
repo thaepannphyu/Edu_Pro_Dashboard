@@ -6,10 +6,6 @@ import Navbar from "./components/Navbar";
 import { useSelector } from "react-redux";
 
 const App = () => {
-  const [isSidebarOpen, setSidebarOpen] = useState(true);
-  const toggleSidebar = () => {
-    setSidebarOpen(!isSidebarOpen);
-  };
   const bgTexture = useSelector((state) => state.themeSlice.bgTexture);
   //   console.log(bgTexture.length);
   return (
@@ -26,12 +22,7 @@ const App = () => {
             backgroundPosition: "center",
             transition: bgTexture ? "background-image 0.5s ease-in-out" : "",
           }}>
-          <div className=" flex">
-            <Sidebar isOpen={isSidebarOpen} />
-
-            <Navbar toggleSidebar={toggleSidebar} isOpen={isSidebarOpen} />
-            <Path />
-          </div>
+          <Path />
         </div>
       ) : (
         <div
@@ -45,12 +36,7 @@ const App = () => {
             backgroundPosition: "center",
             transition: bgTexture ? "background-image 0.5s ease-in-out" : "",
           }}>
-          <div className=" flex">
-            <Sidebar isOpen={isSidebarOpen} />
-
-            <Navbar toggleSidebar={toggleSidebar} isOpen={isSidebarOpen} />
-            <Path />
-          </div>
+          <Path />
         </div>
       )}
     </>
