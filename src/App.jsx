@@ -1,19 +1,40 @@
 import React from "react";
 import Path from "./route/Path";
 import "./App.css";
+import { useSelector } from "react-redux";
 
 const App = () => {
+  const bgTexture = useSelector(state => state.themeSlice.bgTexture)
+//   console.log(bgTexture.length);
   return (
-    <div
-      style={{
-        backgroundImage: `url("https://themewagon.github.io/dashtreme/assets/images/bg-themes/1.png")`,
+
+
+    <>
+    {bgTexture.length < 25 ? (
+      <div className="" style={{
+        backgroundImage: bgTexture ? `url(${bgTexture})` : `url("/src/assets/bg-img/1.png")`,
         backgroundSize: "100% 100%",
         backgroundRepeat: "no-repeat",
         backgroundPosition: "center",
-      }}
-      className=" h-screen">
-      <Path />
+        transition: bgTexture ? "background-image 0.5s ease-in-out" : "",
+      }}>
+        <Path />
+    </div> 
+
+    ): (
+      <div className="" style={{
+        backgroundImage: bgTexture ? `${bgTexture}` : `url("/src/assets/bg-img/1.png")`,
+        backgroundSize: "100% 100%",
+        backgroundRepeat: "no-repeat",
+        backgroundPosition: "center",
+        transition: bgTexture ? "background-image 0.5s ease-in-out" : "",
+      }}>
+        <Path />
+
     </div>
+    )}
+    </>
+    
   );
 };
 
