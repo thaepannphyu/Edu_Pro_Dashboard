@@ -44,7 +44,7 @@ const Sidebar = ({ isOpen }) => {
             <AiOutlineUnorderedList />
           </p>
           <span className=" text-[#ffffffa6] text-[15px] group-hover:text-[#ffffff]">
-            Forms
+            Create Course
           </span>
         </div>
         <div className=" group flex items-center gap-3 hover:bg-[#ffffff33] hover:border-s-2 ps-3 py-2 ">
@@ -59,6 +59,7 @@ const Sidebar = ({ isOpen }) => {
           <p className=" text-[#ffffffa6] text-xl group-hover:text-[#ffffff]">
             <RiContactsLine />
           </p>
+
           <span className=" text-[#ffffffa6] text-[15px] group-hover:text-[#ffffff]">
             Profile
           </span>
@@ -73,6 +74,7 @@ const Sidebar = ({ isOpen }) => {
         </div>
 
         <hr className=" bg-slate-500 border-0 py-[0.2px] " />
+
 
         <p className=" text-[#ffffffa6] text-[12px] uppercase ms-4">Tables</p>
         <div className=" group flex items-center gap-3 hover:bg-[#ffffff33] hover:border-s-2 ps-3 py-2 ">
