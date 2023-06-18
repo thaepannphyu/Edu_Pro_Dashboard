@@ -74,33 +74,50 @@
 @media (min-width: 900px) {
   .pfp {
     position: absolute;
-    right: 120px;
+    right: 100px;
   }
 }
-@media (min-width: 1300px) {
+@media (min-width: 1200px) {
   .pfp {
     right: 80px;
   }
 }
-
-.navbar {
-  transition: background-color 0.3s ease;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 60px;
-  z-index: 999;
+@media (max-width: 500px) {
+  .hide-icons {
+    visibility: hidden;
+  }
+}
+.box {
+  right: 2%;
+}
+@media (max-width: 1400px) {
+  .box {
+    right: 4%;
+  }
+}
+@media (max-width: 1300px) {
+  .box {
+    right: 6%;
+  }
+}
+@media (max-width: 1200px) {
+  .box {
+    right: 9%;
+  }
+}
+@media (max-width: 1100px) {
+  .box {
+    right: 11%;
+  }
+}
+@media (max-width: 1000px) {
+  .box {
+    right: 13%;
+  }
+}
+@media (max-width: 900px) {
+  .box {
+    right: 2%;
+  }
 }
 
-.bg-transparent {
-  background-color: transparent !important;
-}
-
-.bg-blue-500 {
-  background-color: #3b82f6;
-}
-
-.sidebar-transition {
-  transition: width 5000s ease-in-out;
-}
