@@ -12,7 +12,7 @@ import { CgProfile } from "react-icons/cg";
 import { Link, NavLink } from "react-router-dom";
 import "./sidebar.css";
 
-const Sidebar = ({ isOpen }) => {
+const Sidebar = ({ isOpen, isScrolled }) => {
   const handleClick = (event) => {
     event.stopPropagation();
   };
@@ -22,7 +22,10 @@ const Sidebar = ({ isOpen }) => {
         isOpen ? " left-0 opacity-100" : " left-[-300px] opacity-0"
       }  transition-all ease-in duration-300`}>
       {/* Sidebar content */}
-      <div className=" sidebar-item flex gap-5 items-center px-10 py-5 h-[65px] bg-black bg-opacity-30 ">
+      <div className={`sidebar-item flex gap-5 items-center px-10 py-5 h-[65px] transition-all ease-in duration-300
+      ${
+        isScrolled ? " bg-black" : "bg-black bg-opacity-30"
+      } `}>
         <Link to={"/"}>
           <img
             className=" w-[100px] sidebar-item"
