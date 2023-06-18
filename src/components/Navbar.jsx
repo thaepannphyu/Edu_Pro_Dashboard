@@ -81,12 +81,10 @@ const Navbar = () => {
           isScrolled ? " bg-black" : "bg-black bg-opacity-20"
         } ${isScrolled ? "" : ""}  `}>
         {/* Navbar content */}
-        <div className={` flex items-center`}>
+        <div className={` flex items-center justify-between w-full`}>
           <div className=" flex gap-3 ">
             <button
-              className={` text-white text-xl ${
-                isSidebarOpen ? " mx-4" : "mx-2"
-              }`}
+              className={` text-white text-xl `}
               onClick={toggleSidebar}>
               <FiMenu />
             </button>
@@ -101,34 +99,27 @@ const Navbar = () => {
               </p>
             </div>
           </div>
-          <div
-            className={`flex cursor-pointer  items-center ${
-              isSidebarOpen
-                ? " icons"
-                : " hide-icons absolute right-20 flex gap-5"
-            } transition-all ease-in duration-300 `}>
-            <span className=" text-2xl">
+          <div className=" flex items-center gap-5 fixed mr-5 right-0">
+            <span className=" text-xl">
               <FiMail />
             </span>
-            <span className=" text-2xl">
+            <span className=" text-xl">
               <FiBell />
             </span>
-            <span className=" text-2xl">
+            <span className=" text-xl">
               <BsFlagFill />
             </span>
-          </div>
-          <span
-            className={` ${
-              isSidebarOpen ? "pfp" : " absolute right-3"
-            } transition-all ease-in duration-300 cursor-pointer`}>
+          <span>
             <img
               onClick={handleClick}
-              className={`w-[40px] h-[40px] rounded-full `}
+              className={`w-[35px] h-[35px] navbar-profile-shadow rounded-full `}
               src={Profile}
               alt=""
             />
           </span>
+          </div>
         </div>
+
         {showBox && (
           <div
             className={`absolute bg-gray-700 bg-opacity-90 w-[200px] top-full ${
