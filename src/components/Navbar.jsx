@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { FiMenu, FiMail, FiBell } from "react-icons/fi";
 import { BiSearch, BiLockAlt } from "react-icons/bi";
 import { BsFlagFill } from "react-icons/bs";
@@ -20,6 +20,37 @@ const Navbar = () => {
     setShowBox(!showBox);
   };
 
+  const sidebarRef = useRef(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (
+        sidebarRef.current &&
+        !sidebarRef.current.contains(event.target)
+        // !event.target.classList.contains("sidebar-item")
+      ) {
+        setSidebarOpen(false);
+      }
+    };
+
+    const isSidebarItemClicked = (target) => {
+      let node = target;
+      while (node !== document) {
+        if (node.classList.contains("sidebar-item")) {
+          return true;
+        }
+        node = node.parentNode;
+      }
+      return false;
+    };
+
+    document.addEventListener("click", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("click", handleClickOutside);
+    };
+  }, []);
+
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
@@ -37,8 +68,13 @@ const Navbar = () => {
 
   return (
     <div>
-      <Sidebar isOpen={isSidebarOpen} />
+      <div
+        ref={sidebarRef}
+        className={`sidebar ${isSidebarOpen ? "sidebar-transition" : ""}`}>
+        <Sidebar isOpen={isSidebarOpen} />
+      </div>
       <nav
+        ref={sidebarRef}
         className={`  h-[65px]  text-white p-4 flex fixed ${
           isSidebarOpen ? " navW" : "w-[100%]"
         } ${isScrolled ? " bg-black" : "bg-black bg-opacity-20"}  `}>
@@ -51,7 +87,7 @@ const Navbar = () => {
             <div className=" flex bg-[#ffffff33] putField items-center py-2 px-3 rounded">
               <input
                 type="text"
-                className=" bg-transparent text-sm"
+                className=" bg-transparent text-sm outline-none"
                 placeholder="Enter Keywords"
               />
               <p className=" text-[#ffffffc2] text-xl">
@@ -88,10 +124,14 @@ const Navbar = () => {
                 Register <CgProfile className=" text-xl" />
               </Link>
 
-              <Link to={'/login'} className=" mt-2 flex items-center justify-between  w-full px-2 py-1 text-left rounded text-[#ffffffc9] hover:text-white hover:bg-[#ffffff33]">
+              <Link
+                to={"/login"}
+                className=" mt-2 flex items-center justify-between  w-full px-2 py-1 text-left rounded text-[#ffffffc9] hover:text-white hover:bg-[#ffffff33]">
                 LogIn <BiLockAlt className=" text-xl" />
               </Link>
-              <Link to={'/'} className=" mt-2 flex items-center justify-between  w-full px-2 py-1 text-left rounded text-[#ffffffc9] hover:text-white hover:bg-[#ffffff33]">
+              <Link
+                to={"/"}
+                className=" mt-2 flex items-center justify-between  w-full px-2 py-1 text-left rounded text-[#ffffffc9] hover:text-white hover:bg-[#ffffff33]">
                 LogOut <IoExitOutline className=" text-xl" />
               </Link>
             </div>
