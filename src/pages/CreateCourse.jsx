@@ -1,21 +1,38 @@
-import React from "react";
+import React, { useRef } from "react";
 import { BiMovie } from "react-icons/bi";
 import { Link } from "react-router-dom";
 import './Register.css';
+import './CreateCourse.css';
+
 const CreateCourse = () => {
+  const inputCover = useRef();
+  const inputVideo = useRef();
   return (
     <div>
       <div className="flex justify-center items-center">
         <div className=" w-[97%] max-[900px]:w-[95% max-[900px]:w-[94%] max-[600px]:w-[92%] my-6 bgTransparent">
           <form className=" mx-10 mb-16">
-            <h1 className=" text-3xl text-white my-10 max-[390px]:text-2xl max-[335px]:text-xl ">Create New Course</h1>
+            <h1 className=" text-4xl text-white text-shadow my-10 max-[390px]:text-2xl max-[335px]:text-xl createFamily tracking-wide">
+              Create New Course
+            </h1>
             <div className=" flex flex-col">
               <div className=" flex max-[900px]:flex-col gap-9 items-center max-[900px]:items-start">
                 <div className=" w-[30%] max-[900px]:w-[50%] max-[700px]:w-[70%] max-[600px]:w-[80%] max-[500px]:w-[100%]">
-                    <div className='custom-input cursor-pointer w-full h-[370px] max-xl:h-[350px] bg-[rgba(255,255,255,.125)] border-[#e5eaef] rounded-md flex justify-center items-center'>
-                        <p className='subtitle'>Upload cover</p>
-                        <input className=' w-full h-[370px] hidden' type="file" />
-                    </div>
+                  <div
+                    onClick={() => {
+                      inputCover.current.click();
+                      console.log("click");
+                    }}
+                    className=" custom-input cursor-pointer w-full h-[370px] max-xl:h-[350px] rounded-md flex justify-center items-center">
+                    <p className="subtitle">Upload cover</p>
+                    <input
+                      id="cover"
+                      className=" w-full h-[370px] "
+                      type="file"
+                      ref={inputCover}
+                      hidden
+                    />
+                  </div>
                 </div>
 
                 <div className=" w-[70%] max-[900px]:w-full">
@@ -36,20 +53,32 @@ const CreateCourse = () => {
                 </div>
               </div>
 
-              <div className=' custom-input flex justify-between cursor-pointer w-full mb-8 mt-8 py-4 pl-4 mr-1 bg-[rgba(255,255,255,.125)] border-[#e5eaef] rounded-md'>
-                  <p className='subtitle'>Upload video</p>
-                  <input className=' w-[900px] border hidden' type="file" />
-                  <p className=' text-xl pr-4 subtitle'>
-                    <BiMovie />
-                  </p>
+              <div
+                onClick={() => inputVideo.current.click()}
+                className=" custom-input flex justify-between cursor-pointer w-full mb-8 mt-8 py-4 pl-4 mr-1  border-[#e5eaef] rounded-md">
+                <p className="subtitle">Upload video</p>
+                <input
+                  className=" w-[900px] border"
+                  type="file"
+                  ref={inputVideo}
+                  hidden
+                />
+                <p className=" text-xl pr-4 subtitle">
+                  <BiMovie />
+                </p>
               </div>
             </div>
 
-            <Link to='/'>
-              <button className=" py-4 px-20 max-[400px]:py-3 max-[400px]:px-14 bg-[rgba(255,255,255,.125)] text-lg rounded-md text-white border">Create</button>
+            <Link to="/">
+              <button className=" glass-btn py-4 px-20 max-[400px]:py-3 max-[400px]:px-14 text-lg rounded-md text-white">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                Create
+              </button>
             </Link>
           </form>
-
         </div>
       </div>
     </div>

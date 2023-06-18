@@ -96,3 +96,7 @@
 .bg-blue-500 {
   background-color: #3b82f6;
 }
+
+.sidebar-transition {
+  transition: width 5000s ease-in-out;
+}
