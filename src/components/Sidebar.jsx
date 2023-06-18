@@ -12,17 +12,20 @@ import { CgProfile } from "react-icons/cg";
 import { Link, NavLink } from "react-router-dom";
 import "./sidebar.css";
 
-const Sidebar = ({ isOpen }) => {
+const Sidebar = ({ isOpen, isScrolled }) => {
   const handleClick = (event) => {
     event.stopPropagation();
   };
   return (
     <aside
       className={` bg-black lg:bg-opacity-20 z-50 bg-opacity-100 w-[230px] flex flex-col fixed ${
-        isOpen ? "" : "hidden"
-      }`}>
+        isOpen ? " left-0 opacity-100" : " left-[-300px] opacity-0"
+      }  transition-all ease-in duration-300`}>
       {/* Sidebar content */}
-      <div className=" sidebar-item flex gap-5 items-center px-10 py-5 h-[65px] bg-black bg-opacity-30 ">
+      <div className={`sidebar-item flex gap-5 items-center px-10 py-5 h-[65px] transition-all ease-in duration-300
+      ${
+        isScrolled ? " bg-black" : "bg-black bg-opacity-30"
+      } `}>
         <Link to={"/"}>
           <img
             className=" w-[100px] sidebar-item"
@@ -110,7 +113,7 @@ const Sidebar = ({ isOpen }) => {
         <p className=" text-[#ffffffa6] text-[12px] uppercase ms-4">Tables</p>
         <p id="navItem" className="sidebar-item">
           <NavLink
-            to={"/student"}
+            to={"/studentTable"}
             onClick={handleClick}
             className=" group flex items-center gap-3 hover:bg-[#ffffff33] hover:border-s-2 ps-3 py-2 ">
             <p className=" text-[#ffffffa6] text-xl group-hover:text-[#ffffff]">
@@ -123,7 +126,7 @@ const Sidebar = ({ isOpen }) => {
         </p>
         <p id="navItem" className="sidebar-item">
           <NavLink
-            to={"/teacher"}
+            to={"/teacherTable"}
             onClick={handleClick}
             className=" group flex items-center gap-3 hover:bg-[#ffffff33] hover:border-s-2 ps-3 py-2 ">
             <p className=" text-[#ffffffa6] text-xl group-hover:text-[#ffffff]">
@@ -136,7 +139,7 @@ const Sidebar = ({ isOpen }) => {
         </p>
         <p id="navItem" className="sidebar-item">
           <NavLink
-            to={"/courses"}
+            to={"/courseTable"}
             onClick={handleClick}
             className=" group flex items-center gap-3 hover:bg-[#ffffff33] hover:border-s-2 ps-3 py-2 ">
             <p className=" text-[#ffffffa6] text-xl group-hover:text-[#ffffff]">

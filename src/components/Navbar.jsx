@@ -8,9 +8,11 @@ import "./navbar.css";
 import Profile from "../assets/profile.png";
 import Sidebar from "./Sidebar";
 import { Link } from "react-router-dom";
+import { StateContextCustom } from "./context/StateContext";
 
 const Navbar = () => {
-  const [isSidebarOpen, setSidebarOpen] = useState(true);
+  // const [isSidebarOpen, setSidebarOpen] = useState(true);
+  const {isSidebarOpen,setSidebarOpen} = StateContextCustom();
   const toggleSidebar = () => {
     setSidebarOpen(!isSidebarOpen);
   };
@@ -57,6 +59,7 @@ const Navbar = () => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
       setIsScrolled(scrollPosition > 0);
+      console.log(scrollPosition);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -71,17 +74,21 @@ const Navbar = () => {
       <div
         ref={sidebarRef}
         className={`sidebar ${isSidebarOpen ? "sidebar-transition" : ""}`}>
-        <Sidebar isOpen={isSidebarOpen} />
+        <Sidebar isOpen={isSidebarOpen} isScrolled={isScrolled} />
       </div>
       <nav
         ref={sidebarRef}
-        className={`  h-[65px]  text-white p-4 flex fixed ${
-          isSidebarOpen ? " navW" : "w-[100%]"
-        } ${isScrolled ? " bg-black" : "bg-black bg-opacity-20"}  `}>
+        className={`  h-[65px] text-white p-4 flex fixed ${
+          isSidebarOpen ? "navW" : " left-0 w-full"
+        } transition-all ease-in duration-300 ${
+          isScrolled ? " bg-black" : "bg-black bg-opacity-20"
+        } ${isScrolled ? "" : ""}  `}>
         {/* Navbar content */}
-        <div className={` flex items-center`}>
+        <div className={` flex items-center justify-between w-full`}>
           <div className=" flex gap-3 ">
-            <button className="text-white text-xl " onClick={toggleSidebar}>
+            <button
+              className={` text-white text-xl `}
+              onClick={toggleSidebar}>
               <FiMenu />
             </button>
             <div className=" flex bg-[#ffffff33] putField items-center py-2 px-3 rounded">
@@ -95,28 +102,32 @@ const Navbar = () => {
               </p>
             </div>
           </div>
-          <div className={`flex  items-center icons`}>
-            <span className=" text-2xl">
+          <div className=" flex items-center gap-5 fixed mr-5 right-0">
+            <span className=" text-xl">
               <FiMail />
             </span>
-            <span className=" text-2xl">
+            <span className=" text-xl">
               <FiBell />
             </span>
-            <span className=" text-2xl">
+            <span className=" text-xl">
               <BsFlagFill />
             </span>
-          </div>
-          <span className=" pfp">
+          <span>
             <img
               onClick={handleClick}
-              className=" w-[40px] h-[40px] rounded-full"
+              className={`w-[35px] h-[35px] navbar-profile-shadow rounded-full `}
               src={Profile}
               alt=""
             />
           </span>
+          </div>
         </div>
+
         {showBox && (
-          <div className="absolute bg-black bg-opacity-40 w-[200px] top-full right-[10%] mt-2 p-4 rounded shadow-lg">
+          <div
+            className={`absolute bg-gray-700 bg-opacity-90 w-[200px] top-full ${
+              isSidebarOpen ? " box" : " right-4"
+            }  mt-2 p-4 rounded shadow-lg `}>
             <div className=" flex flex-col items-start gap-2">
               <Link
                 to={"/register"}
