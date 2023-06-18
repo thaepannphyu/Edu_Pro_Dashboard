@@ -12,7 +12,7 @@ import { StateContextCustom } from "./context/StateContext";
 
 const Navbar = () => {
   // const [isSidebarOpen, setSidebarOpen] = useState(true);
-  const {isSidebarOpen,setSidebarOpen} = StateContextCustom();
+  const { isSidebarOpen, setSidebarOpen } = StateContextCustom();
   const toggleSidebar = () => {
     setSidebarOpen(!isSidebarOpen);
   };
@@ -73,12 +73,12 @@ const Navbar = () => {
     <div>
       <div
         ref={sidebarRef}
-        className={`sidebar ${isSidebarOpen ? "sidebar-transition" : ""}`}>
+        className={`sidebar ${isSidebarOpen ? "sidebar-transition" : ""} z-50`}>
         <Sidebar isOpen={isSidebarOpen} isScrolled={isScrolled} />
       </div>
       <nav
         ref={sidebarRef}
-        className={`  h-[65px] text-white p-4 flex fixed ${
+        className={`z-50  h-[65px] text-white p-4 flex fixed ${
           isSidebarOpen ? "navW" : " left-0 w-full"
         } transition-all ease-in duration-300 ${
           isScrolled ? " bg-black" : "bg-black bg-opacity-20"
@@ -86,9 +86,7 @@ const Navbar = () => {
         {/* Navbar content */}
         <div className={` flex items-center justify-between w-full`}>
           <div className=" flex gap-3 ">
-            <button
-              className={` text-white text-xl `}
-              onClick={toggleSidebar}>
+            <button className={` text-white text-xl `} onClick={toggleSidebar}>
               <FiMenu />
             </button>
             <div className=" flex bg-[#ffffff33] putField items-center py-2 px-3 rounded">
@@ -112,14 +110,14 @@ const Navbar = () => {
             <span className=" text-xl">
               <BsFlagFill />
             </span>
-          <span>
-            <img
-              onClick={handleClick}
-              className={`w-[35px] h-[35px] navbar-profile-shadow rounded-full `}
-              src={Profile}
-              alt=""
-            />
-          </span>
+            <span>
+              <img
+                onClick={handleClick}
+                className={`w-[35px] h-[35px] navbar-profile-shadow rounded-full `}
+                src={Profile}
+                alt=""
+              />
+            </span>
           </div>
         </div>
 
