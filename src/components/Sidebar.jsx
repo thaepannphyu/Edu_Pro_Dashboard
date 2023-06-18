@@ -110,7 +110,7 @@ const Sidebar = ({ isOpen }) => {
         <p className=" text-[#ffffffa6] text-[12px] uppercase ms-4">Tables</p>
         <p id="navItem" className="sidebar-item">
           <NavLink
-            to={"/student"}
+            to={"/studentTable"}
             onClick={handleClick}
             className=" group flex items-center gap-3 hover:bg-[#ffffff33] hover:border-s-2 ps-3 py-2 ">
             <p className=" text-[#ffffffa6] text-xl group-hover:text-[#ffffff]">
@@ -123,7 +123,7 @@ const Sidebar = ({ isOpen }) => {
         </p>
         <p id="navItem" className="sidebar-item">
           <NavLink
-            to={"/teacher"}
+            to={"/teacherTable"}
             onClick={handleClick}
             className=" group flex items-center gap-3 hover:bg-[#ffffff33] hover:border-s-2 ps-3 py-2 ">
             <p className=" text-[#ffffffa6] text-xl group-hover:text-[#ffffff]">
@@ -136,7 +136,7 @@ const Sidebar = ({ isOpen }) => {
         </p>
         <p id="navItem" className="sidebar-item">
           <NavLink
-            to={"/courses"}
+            to={"/courseTable"}
             onClick={handleClick}
             className=" group flex items-center gap-3 hover:bg-[#ffffff33] hover:border-s-2 ps-3 py-2 ">
             <p className=" text-[#ffffffa6] text-xl group-hover:text-[#ffffff]">

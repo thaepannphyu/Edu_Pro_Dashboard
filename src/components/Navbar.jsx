@@ -8,9 +8,11 @@ import "./navbar.css";
 import Profile from "../assets/profile.png";
 import Sidebar from "./Sidebar";
 import { Link } from "react-router-dom";
+import { StateContextCustom } from "./context/StateContext";
 
 const Navbar = () => {
-  const [isSidebarOpen, setSidebarOpen] = useState(true);
+  // const [isSidebarOpen, setSidebarOpen] = useState(true);
+  const {isSidebarOpen,setSidebarOpen} = StateContextCustom();
   const toggleSidebar = () => {
     setSidebarOpen(!isSidebarOpen);
   };
