@@ -4,7 +4,7 @@ import "./Table.css";
 const TeacherTable = () => {
   return (
     <div className='flex justify-center items-start h-screen'>
-      <div className=' bgTransparent w-[90%] mt-10 flex flex-col gap-3 rounded p-7'>
+      <div className=' bgTransparent w-[95%] mt-10 flex flex-col gap-3 pb-10 rounded p-7'>
         <h1 className=' font-medium text-white text-lg tracking-wide'>Teacher Table</h1>
         <table className='table-responsive'>
           <thead className='tableTitle border-b border-color'>

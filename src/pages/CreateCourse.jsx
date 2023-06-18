@@ -9,8 +9,8 @@ const CreateCourse = () => {
   const inputVideo = useRef();
   return (
     <div>
-      <div className="flex justify-center items-center">
-        <div className=" w-[97%] max-[900px]:w-[95% max-[900px]:w-[94%] max-[600px]:w-[92%] my-6 bgTransparent">
+      <div className="flex justify-center ">
+        <div className=" w-[95%] max-[900px]:w-[95% max-[900px]:w-[94%] max-[600px]:w-[92%] mt-10 mb-6  bgTransparent">
           <form className=" mx-10 mb-16">
             <h1 className=" text-4xl text-white text-shadow my-10 max-[390px]:text-2xl max-[335px]:text-xl createFamily tracking-wide">
               Create New Course
