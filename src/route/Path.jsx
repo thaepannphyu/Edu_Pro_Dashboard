@@ -9,6 +9,9 @@ import Theme from "../components/Theme";
 import Profile from "../components/Profile/Profile";
 import Navbar from "../components/Navbar";
 import Error from "../pages/Error";
+
+import Calender from "../components/Calender/calender";
+
 import { StateContextCustom } from "../components/context/StateContext";
 import StudentTable from "../components/StudentTable";
 import CourseTable from "../components/CourseTable";
@@ -47,6 +50,7 @@ const Path = () => {
           <Route path="/resetPassword" element={<ResetPassword />} />
           <Route path="/createCourse" element={<CreateCourse />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/calender" element={<Calender />} />
           <Route path="*" element={<Error />} />
         </Routes>
         <Theme /> */}
