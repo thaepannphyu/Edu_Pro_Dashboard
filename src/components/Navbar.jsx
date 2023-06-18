@@ -109,7 +109,7 @@ const Navbar = () => {
           <span className=" pfp">
             <img
               onClick={handleClick}
-              className=" w-[40px] h-[40px] rounded-full"
+              className=" w-[40px] h-[40px] navbar-profile-shadow rounded-full"
               src={Profile}
               alt=""
             />
