@@ -57,6 +57,7 @@ const Navbar = () => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
       setIsScrolled(scrollPosition > 0);
+      console.log(scrollPosition);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -71,7 +72,7 @@ const Navbar = () => {
       <div
         ref={sidebarRef}
         className={`sidebar ${isSidebarOpen ? "sidebar-transition" : ""}`}>
-        <Sidebar isOpen={isSidebarOpen} />
+        <Sidebar isOpen={isSidebarOpen} isScrolled={isScrolled} />
       </div>
       <nav
         ref={sidebarRef}
