@@ -19,8 +19,8 @@ const Sidebar = ({ isOpen }) => {
   return (
     <aside
       className={` bg-black lg:bg-opacity-20 z-50 bg-opacity-100 w-[230px] flex flex-col fixed ${
-        isOpen ? "" : "hidden"
-      }`}>
+        isOpen ? " left-0 opacity-100" : " left-[-300px] opacity-0"
+      }  transition-all ease-in duration-300`}>
       {/* Sidebar content */}
       <div className=" sidebar-item flex gap-5 items-center px-10 py-5 h-[65px] bg-black bg-opacity-30 ">
         <Link to={"/"}>

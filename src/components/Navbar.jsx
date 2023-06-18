@@ -75,13 +75,19 @@ const Navbar = () => {
       </div>
       <nav
         ref={sidebarRef}
-        className={`  h-[65px]  text-white p-4 flex fixed ${
-          isSidebarOpen ? " navW" : "w-[100%]"
-        } ${isScrolled ? " bg-black" : "bg-black bg-opacity-20"}  `}>
+        className={`  h-[65px] text-white p-4 flex fixed ${
+          isSidebarOpen ? "navW" : " left-0 w-full"
+        } transition-all ease-in duration-300 ${
+          isScrolled ? " bg-black" : "bg-black bg-opacity-20"
+        } ${isScrolled ? "" : ""}  `}>
         {/* Navbar content */}
         <div className={` flex items-center`}>
           <div className=" flex gap-3 ">
-            <button className="text-white text-xl " onClick={toggleSidebar}>
+            <button
+              className={` text-white text-xl ${
+                isSidebarOpen ? " mx-4" : "mx-2"
+              }`}
+              onClick={toggleSidebar}>
               <FiMenu />
             </button>
             <div className=" flex bg-[#ffffff33] putField items-center py-2 px-3 rounded">
@@ -95,7 +101,12 @@ const Navbar = () => {
               </p>
             </div>
           </div>
-          <div className={`flex  items-center icons`}>
+          <div
+            className={`flex cursor-pointer  items-center ${
+              isSidebarOpen
+                ? " icons"
+                : " hide-icons absolute right-20 flex gap-5"
+            }`}>
             <span className=" text-2xl">
               <FiMail />
             </span>
@@ -106,17 +117,23 @@ const Navbar = () => {
               <BsFlagFill />
             </span>
           </div>
-          <span className=" pfp">
+          <span
+            className={` ${
+              isSidebarOpen ? "pfp" : " absolute right-3"
+            } cursor-pointer`}>
             <img
               onClick={handleClick}
-              className=" w-[40px] h-[40px] rounded-full"
+              className={`w-[40px] h-[40px] rounded-full `}
               src={Profile}
               alt=""
             />
           </span>
         </div>
         {showBox && (
-          <div className="absolute bg-black bg-opacity-40 w-[200px] top-full right-[10%] mt-2 p-4 rounded shadow-lg">
+          <div
+            className={`absolute bg-gray-700 bg-opacity-90 w-[200px] top-full ${
+              isSidebarOpen ? " box" : " right-4"
+            }  mt-2 p-4 rounded shadow-lg `}>
             <div className=" flex flex-col items-start gap-2">
               <Link
                 to={"/register"}

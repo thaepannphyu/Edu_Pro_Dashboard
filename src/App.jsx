@@ -6,6 +6,7 @@ import Navbar from "./components/Navbar";
 import { useSelector } from "react-redux";
 
 const App = () => {
+  
   const bgTexture = useSelector((state) => state.themeSlice.bgTexture);
   //   console.log(bgTexture.length);
   return (
