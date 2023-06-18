@@ -1,7 +1,7 @@
 import React from "react";
 import { BiMovie } from "react-icons/bi";
 import { Link } from "react-router-dom";
-
+import './Register.css';
 const CreateCourse = () => {
   return (
     <div>
@@ -12,7 +12,7 @@ const CreateCourse = () => {
             <div className=" flex flex-col">
               <div className=" flex max-[900px]:flex-col gap-9 items-center max-[900px]:items-start">
                 <div className=" w-[30%] max-[900px]:w-[50%] max-[700px]:w-[70%] max-[600px]:w-[80%] max-[500px]:w-[100%]">
-                    <div className=' cursor-pointer w-full h-[370px] max-xl:h-[350px] bg-[rgba(255,255,255,.125)] border-[#e5eaef] rounded-md flex justify-center items-center'>
+                    <div className='custom-input cursor-pointer w-full h-[370px] max-xl:h-[350px] bg-[rgba(255,255,255,.125)] border-[#e5eaef] rounded-md flex justify-center items-center'>
                         <p className='subtitle'>Upload cover</p>
                         <input className=' w-full h-[370px] hidden' type="file" />
                     </div>
@@ -21,29 +21,22 @@ const CreateCourse = () => {
                 <div className=" w-[70%] max-[900px]:w-full">
                     <div className='flex flex-col gap-8'>
                         <div className=' flex flex-col gap-7'>
-                          <input className=' placeholder-[#ffffffd9] focus:border-2 focus:border-[#ffffff98] focus:outline-none py-3 pl-4 bg-[rgba(255,255,255,.125)] border-[#e5eaef] rounded-md' type='text' placeholder="Title"/>
-                          <input className=' placeholder-[#ffffffd9] focus:border-2 focus:border-[#ffffff98] focus:outline-none pt-4 pb-20  pl-4 bg-[rgba(255,255,255,.125)] border-[#e5eaef] rounded-md' type='text' placeholder="Description"/>
+                          <input className='   py-3 pl-4 custom-input rounded-md' type='text' placeholder="Title"/>
+                          <input className='  custom-input pt-4 pb-20  pl-4 rounded-md' type='text' placeholder="Description"/>
 
                           <div className=' flex gap-5 w-[100%] max-[700px]:flex-col max-[700px]:gap-8'>
-                            <input className=' placeholder-[#ffffffd9] focus:border-2 focus:border-[#ffffff98] focus:outline-none w-full py-3 pl-4 bg-[rgba(255,255,255,.125)] border-[#e5eaef] rounded-md' type='number' placeholder="Duration" />
-                            <input className=' placeholder-[#ffffffd9] focus:border-2 focus:border-[#ffffff98] focus:outline-none w-full py-3 pl-4 bg-[rgba(255,255,255,.125)] border-[#e5eaef] rounded-md' type='number' placeholder="Lessons" />
-                            <input className=' placeholder-[#ffffffd9] focus:border-2 focus:border-[#ffffff98] focus:outline-none w-full py-3 pl-4 bg-[rgba(255,255,255,.125)] border-[#e5eaef] rounded-md' type='text' placeholder="Language" />
-
-                            {/* <select className=" focus:border-2 focus:border-[#ffffff98] text-[#ffffffd9] focus:outline-none w-full py-3 px-1 bg-[rgba(255,255,255,.125)] border-[#e5eaef] rounded-md">
-                              <option className=" focus:border-2 focus:border-[#ffffff98] text-[#ffffffd9] focus:outline-none w-full py-3 pl-4 bg-[rgba(255,255,255,.125)]" value="">mm</option>
-                              <option className=" focus:border-2 focus:border-[#ffffff98] text-[#ffffffd9] focus:outline-none w-full py-3 pl-4 bg-[rgba(255,255,255,.125)]" value="">mm</option>
-                              <option className=" focus:border-2 focus:border-[#ffffff98] text-[#ffffffd9] focus:outline-none w-full py-3 pl-4 bg-[rgba(255,255,255,.125)]" value="">mm</option>
-                            </select> */}
-
-                            <input className=' placeholder-[#ffffffd9] focus:border-2 focus:border-[#ffffff98] focus:outline-none w-full py-3 pl-4 bg-[rgba(255,255,255,.125)] border-[#e5eaef] rounded-md' type='number' placeholder="Price" />
+                            <input className='  custom-input w-full py-3 pl-4 rounded-md' type='number' placeholder="Duration" />
+                            <input className='  custom-input w-full py-3 pl-4 rounded-md' type='number' placeholder="Lessons" />
+                            <input className='  custom-input w-full py-3 pl-4 rounded-md' type='text' placeholder="Language" />
+                            <input className='  custom-input w-full py-3 pl-4 rounded-md' type='number' placeholder="Price" />
                           </div>
                         </div>
-                        <input className=' placeholder-[#ffffffd9] focus:border-2 focus:border-[#ffffff98] focus:outline-none py-3 pl-4 bg-[rgba(255,255,255,.125)] border-[#e5eaef] rounded-md' type='text' placeholder='Instructor'/>
+                        <input className='  custom-input py-3 pl-4 rounded-md' type='text' placeholder='Instructor'/>
                     </div>
                 </div>
               </div>
 
-              <div className='  flex justify-between cursor-pointer w-full mb-8 mt-8 py-4 pl-4 mr-1 bg-[rgba(255,255,255,.125)] border-[#e5eaef] rounded-md'>
+              <div className=' custom-input flex justify-between cursor-pointer w-full mb-8 mt-8 py-4 pl-4 mr-1 bg-[rgba(255,255,255,.125)] border-[#e5eaef] rounded-md'>
                   <p className='subtitle'>Upload video</p>
                   <input className=' w-[900px] border hidden' type="file" />
                   <p className=' text-xl pr-4 subtitle'>

@@ -4,7 +4,7 @@
     font-size: 13px;
     border: none;
     box-shadow: 0 0 0 1px transparent;
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    transition: background-color 0.2s ease, box-shadow 0.2s ease;
   }
   
   .custom-input::placeholder {
