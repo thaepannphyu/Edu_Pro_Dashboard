@@ -84,7 +84,7 @@ const Navbar = () => {
         <div className={` flex items-center justify-between w-full`}>
           <div className=" flex gap-3 ">
             <button
-              className={` text-white text-2xl `}
+              className={` text-white text-xl `}
               onClick={toggleSidebar}>
               <FiMenu />
             </button>
@@ -100,19 +100,19 @@ const Navbar = () => {
             </div>
           </div>
           <div className=" flex items-center gap-5 fixed mr-5 right-0">
-            <span className=" text-2xl">
+            <span className=" text-xl">
               <FiMail />
             </span>
-            <span className=" text-2xl">
+            <span className=" text-xl">
               <FiBell />
             </span>
-            <span className=" text-2xl">
+            <span className=" text-xl">
               <BsFlagFill />
             </span>
           <span>
             <img
               onClick={handleClick}
-              className={`w-[40px] h-[40px] navbar-profile-shadow rounded-full `}
+              className={`w-[35px] h-[35px] navbar-profile-shadow rounded-full `}
               src={Profile}
               alt=""
             />
