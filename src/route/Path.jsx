@@ -9,6 +9,7 @@ import Theme from "../components/Theme";
 import Profile from "../components/Profile/Profile";
 import Navbar from "../components/Navbar";
 import Error from "../pages/Error";
+import Calender from "../components/Calender/calender";
 
 const Path = () => {
   return (
@@ -22,6 +23,7 @@ const Path = () => {
           <Route path="/resetPassword" element={<ResetPassword />} />
           <Route path="/createCourse" element={<CreateCourse />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/calender" element={<Calender />} />
           <Route path="*" element={<Error />} />
         </Routes>
         <Theme />
