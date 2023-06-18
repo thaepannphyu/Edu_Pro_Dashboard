@@ -106,7 +106,7 @@ const Navbar = () => {
               isSidebarOpen
                 ? " icons"
                 : " hide-icons absolute right-20 flex gap-5"
-            }`}>
+            } transition-all ease-in duration-300 `}>
             <span className=" text-2xl">
               <FiMail />
             </span>
@@ -120,7 +120,7 @@ const Navbar = () => {
           <span
             className={` ${
               isSidebarOpen ? "pfp" : " absolute right-3"
-            } cursor-pointer`}>
+            } transition-all ease-in duration-300 cursor-pointer`}>
             <img
               onClick={handleClick}
               className={`w-[40px] h-[40px] rounded-full `}
