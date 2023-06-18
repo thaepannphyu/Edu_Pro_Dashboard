@@ -10,7 +10,7 @@ const CreateCourse = () => {
       <div className="flex justify-center items-center">
         <div className=" w-[97%] max-[900px]:w-[95% max-[900px]:w-[94%] max-[600px]:w-[92%] my-6 bgTransparent">
           <form className=" mx-10 mb-16">
-            <h1 className=" text-3xl text-white my-10 max-[390px]:text-2xl max-[335px]:text-xl ">
+            <h1 className=" text-3xl text-white my-10 max-[390px]:text-2xl max-[335px]:text-xl Createfamily tracking-wide">
               Create New Course
             </h1>
             <div className=" flex flex-col">
