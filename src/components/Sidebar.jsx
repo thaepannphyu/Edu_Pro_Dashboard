@@ -35,7 +35,7 @@ const Sidebar = ({ isOpen, isScrolled , toggleSidebar }) => {
           />
         </Link>
         <p onClick={toggleSidebar}>
-          <BsBoxArrowLeft className=" text-[#ffffffa6] hover:text-[#ffffff] closeBtn text-2xl" />
+          <BsBoxArrowLeft className=" text-[#ffffffa6] hover:text-[#ffffff] cursor-pointer closeBtn text-2xl" />
         </p>
       </div>
       <hr className=" bg-slate-500 border-0 py-[0.2px] " />
