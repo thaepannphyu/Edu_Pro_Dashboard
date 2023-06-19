@@ -77,10 +77,10 @@ const LineChart = () => {
       };
   return (
     <div className=' w-[60%] justify-center max-lg:w-[100%] rounded bgTransparent shadow-md'>
-        <h1 className=' text-[rgba(255,255,255,1)] text-sm tracking-wide pl-16 py-3'>Title</h1>
+        <h1 className=' text-[rgba(255,255,255,1)] text-sm tracking-wide pl-10 py-3'>Title</h1>
         <hr className='border-t border-t-color' />
 
-        <div className=' pl-16 pt-5 flex gap-4'>
+        <div className=' pl-10 pt-5 flex gap-4'>
             <div className=' subtitle flex gap-2 items-center'>
                 <p><BsCircleFill className='new-color'/></p>
                 <p>New students</p>
