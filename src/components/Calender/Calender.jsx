@@ -186,7 +186,7 @@ const Calender = () => {
                   className={`p-6 h-[150px] flex  flex-col bgTransparent  borderTransparent`}>
                   <div
                     className={`w-[35px]  h-[35px] flex items-center justify-center ms-auto ${
-                      isToday(day) ? "bg-red-200" : ""
+                      isToday(day) ? "bg-orange-400 text-black" : ""
                     }  rounded-[50%] ${
                       isSameMonth(day, todayS) && !isToday(day)
                         ? "bg-slate-200 "
@@ -222,6 +222,8 @@ const Calender = () => {
               day: oneClickDate,
               event: eventValue,
             });
+            close();
+            setEventValue(null);
             // eventArray.push(eventList);
           }}
           className=" w-[200px]">
