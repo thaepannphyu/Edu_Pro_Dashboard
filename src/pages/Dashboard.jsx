@@ -5,7 +5,7 @@ import DoughnutChart from '../components/dashboard-componentes/DoughnutChart'
 
 const Dashboard = () => {
   return (
-    <div className=' h-screen'>
+    <div className=''>
       <Progress />
       <LineChart/>
       <DoughnutChart/>
