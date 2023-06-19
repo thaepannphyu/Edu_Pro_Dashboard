@@ -4,7 +4,6 @@ import "./App.css";
 // import Sidebar from "./components/Sidebar";
 // import Navbar from "./components/Navbar";
 import { useSelector } from "react-redux";
-import DoughnutChart from "./components/dashboard-componentes/DoughnutChart";
 // import Calender from "./components/Calender/calender.jsx";
 
 const App = () => {
@@ -24,8 +23,7 @@ const App = () => {
             backgroundPosition: "center",
             transition: bgTexture ? "background-image 0.5s ease-in-out" : "",
           }}>
-          {/* <Path /> */}
-          <DoughnutChart/>
+          <Path />
         </div>
       ) : (
         <div
@@ -39,8 +37,7 @@ const App = () => {
             backgroundPosition: "center",
             transition: bgTexture ? "background-image 0.5s ease-in-out" : "",
           }}>
-          {/* <Path /> */}
-          <DoughnutChart/>
+          <Path />
         </div>
       )}
     </>
