@@ -5,8 +5,8 @@ const Dashboard = () => {
   return (
     <div className=' h-screen'>
       <LineChart/>
+      <Progress />
     </div>
   )
 }
-
 export default Dashboard
