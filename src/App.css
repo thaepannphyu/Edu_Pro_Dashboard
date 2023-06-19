@@ -27,3 +27,7 @@
 .createFamily {
   font-family: "Kalam", cursive;
 }
+.borderTransparent {
+  border-width: 1px 1px 1px 1px;
+  border-color: rgba(255, 254, 254, 0.192);
+}
