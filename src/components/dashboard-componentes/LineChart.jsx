@@ -76,7 +76,7 @@ const LineChart = () => {
         },
       };
   return (
-    <div className=' w-[61%] max-lg:w-[95%] rounded bgTransparent shadow-md'>
+    <div className=' w-[60%] justify-center max-lg:w-[100%] rounded bgTransparent shadow-md'>
         <h1 className=' text-[rgba(255,255,255,1)] text-sm tracking-wide pl-16 py-3'>Title</h1>
         <hr className='border-t border-t-color' />
 
@@ -91,7 +91,7 @@ const LineChart = () => {
             </div>
         </div>
 
-        <div className=' w-full max-h-[600px] flex justify-center py-5'>
+        <div className='px-5 w-full max-h-[600px] flex justify-center py-5'>
             <Line data={data} options={options}>
             </Line>
         </div>
