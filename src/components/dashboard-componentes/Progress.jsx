@@ -39,7 +39,7 @@ const Progress = () => {
         <div className=" progress-item flex flex-col gap-2 ">
           {/* title  */}
           <div className=" text-[#ffffff] flex justify-between ">
-            <p className="  mainText">2300</p>
+            <p className="  mainText">1200</p>
             <p>
               <CiTrophy className=" text-2xl" />
             </p>
@@ -64,7 +64,7 @@ const Progress = () => {
         <div className=" progress-item flex flex-col gap-2">
           {/* title  */}
           <div className=" text-[#ffffff] flex justify-between ">
-            <p className="  mainText">2300</p>
+            <p className="  mainText">200</p>
             <p>
               <VscGraphLine className=" text-2xl" />
             </p>
@@ -89,7 +89,7 @@ const Progress = () => {
         <div className=" progress-item flex flex-col gap-2 last-item">
           {/* title  */}
           <div className=" text-[#ffffff] flex justify-between ">
-            <p className="  mainText">2300</p>
+            <p className="  mainText">600</p>
             <p>
               <RiLeafLine className=" text-2xl" />
             </p>
