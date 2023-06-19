@@ -22,37 +22,6 @@ const Navbar = () => {
     setShowBox(!showBox);
   };
 
-  const sidebarRef = useRef(null);
-
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (
-        sidebarRef.current &&
-        !sidebarRef.current.contains(event.target)
-        // !event.target.classList.contains("sidebar-item")
-      ) {
-        setSidebarOpen(false);
-      }
-    };
-
-    const isSidebarItemClicked = (target) => {
-      let node = target;
-      while (node !== document) {
-        if (node.classList.contains("sidebar-item")) {
-          return true;
-        }
-        node = node.parentNode;
-      }
-      return false;
-    };
-
-    document.addEventListener("click", handleClickOutside);
-
-    return () => {
-      document.removeEventListener("click", handleClickOutside);
-    };
-  }, []);
-
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
@@ -72,13 +41,13 @@ const Navbar = () => {
   return (
     <div>
       <div
-        ref={sidebarRef}
+        
         className={`sidebar ${isSidebarOpen ? "sidebar-transition" : ""} z-50`}>
-        <Sidebar isOpen={isSidebarOpen} isScrolled={isScrolled} />
+        <Sidebar isOpen={isSidebarOpen} isScrolled={isScrolled} toggleSidebar={toggleSidebar} />
       </div>
       <nav
-        ref={sidebarRef}
-        className={`z-50  h-[65px] text-white p-4 flex fixed ${
+        
+        className={`  h-[65px] text-white p-4 flex fixed ${
           isSidebarOpen ? "navW" : " left-0 w-full"
         } transition-all ease-in duration-300 ${
           isScrolled ? " bg-black" : "bg-black bg-opacity-20"
@@ -101,13 +70,13 @@ const Navbar = () => {
             </div>
           </div>
           <div className=" flex items-center gap-5 fixed mr-5 right-0">
-            <span className=" text-xl">
+            <span className=" text-xl h-icon">
               <FiMail />
             </span>
-            <span className=" text-xl">
+            <span className=" text-xl h-icon">
               <FiBell />
             </span>
-            <span className=" text-xl">
+            <span className=" text-xl h-icon">
               <BsFlagFill />
             </span>
             <span>

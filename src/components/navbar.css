@@ -121,3 +121,8 @@
   }
 }
 
+@media (max-width: 500px) {
+  .h-icon {
+    visibility: hidden;
+  }
+}

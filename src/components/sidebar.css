@@ -3,4 +3,11 @@
   border: #ffffff solid left 2px;
   color: #ffffff;
 }
-
+.closeBtn {
+  visibility: hidden;
+}
+@media (max-width: 900px) {
+  .closeBtn {
+    visibility: visible;
+  }
+}

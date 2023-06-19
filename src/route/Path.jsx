@@ -16,20 +16,21 @@ import { StateContextCustom } from "../components/context/StateContext";
 import StudentTable from "../components/StudentTable";
 import CourseTable from "../components/CourseTable";
 import TeacherTable from "../components/TeacherTable";
+import ScrollTop from "../components/ScrollTop";
 
 const Path = () => {
   const { isSidebarOpen } = StateContextCustom();
   return (
     <div>
       <BrowserRouter>
+      <ScrollTop/>
         <div className="flex flex-col">
           <div>
             <Navbar />
           </div>
-          <div
-            className={`mt-16 duration-500 ${
-              isSidebarOpen && " ml-56"
-            } max-lg:ml-0`}>
+
+          <div className={`mt-[52px] duration-500 ${isSidebarOpen && " ml-[230px]" } max-lg:ml-0`}>
+
             <Routes>
               <Route path="/" element={<Dashboard />} />
               <Route path="/register" element={<Register />} />

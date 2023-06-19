@@ -6,26 +6,26 @@ import {
   AiOutlineTable,
   AiOutlineLock,
 } from "react-icons/ai";
+import { BsBoxArrowLeft } from "react-icons/bs";
 import { RiContactsLine } from "react-icons/ri";
 import { GiNewspaper } from "react-icons/gi";
 import { CgProfile } from "react-icons/cg";
 import { Link, NavLink } from "react-router-dom";
 import "./sidebar.css";
 
-const Sidebar = ({ isOpen, isScrolled }) => {
+const Sidebar = ({ isOpen, isScrolled , toggleSidebar }) => {
   const handleClick = (event) => {
     event.stopPropagation();
   };
   return (
     <aside
-      className={` bg-black lg:bg-opacity-20 z-50 bg-opacity-100 w-[230px] flex flex-col fixed ${
+      className={` h-screen bg-black lg:bg-opacity-20 z-50 bg-opacity-100 w-[230px] flex flex-col fixed ${
         isOpen ? " left-0 opacity-100" : " left-[-300px] opacity-0"
-      }  transition-all ease-in duration-300`}>
+      }  transition-all ease-in duration-[330ms]`}>
       {/* Sidebar content */}
-      <div className={`sidebar-item flex gap-5 items-center px-10 py-5 h-[65px] transition-all ease-in duration-300
-      ${
-        isScrolled ? " bg-black" : "bg-black bg-opacity-30"
-      } `}>
+      <div
+        className={`sidebar-item flex gap-10 items-center px-10 py-5 h-[65px] transition-all ease-in duration-300
+      ${isScrolled ? " bg-black" : "bg-black bg-opacity-30"} `}>
         <Link to={"/"}>
           <img
             className=" w-[100px] sidebar-item"
@@ -34,6 +34,9 @@ const Sidebar = ({ isOpen, isScrolled }) => {
             alt=""
           />
         </Link>
+        <p onClick={toggleSidebar}>
+          <BsBoxArrowLeft className=" text-[#ffffffa6] hover:text-[#ffffff] cursor-pointer closeBtn text-2xl" />
+        </p>
       </div>
       <hr className=" bg-slate-500 border-0 py-[0.2px] " />
       {/* main navigation  */}
