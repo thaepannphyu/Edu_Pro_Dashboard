@@ -1,19 +1,23 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    bgTexture: "",
-}
+  bgTexture: "",
+  events: [],
+};
 
 export const themeSlice = createSlice({
-    name: "themeSlice",
-    initialState,
-    reducers: {
-        addBgTexture: (state,{payload})=>{
-            state.bgTexture = payload
-            // localStorage.setItem("bgTexture",state.bgTexture);
-        },
-    }
-})
+  name: "themeSlice",
+  initialState,
+  reducers: {
+    addBgTexture: (state, { payload }) => {
+      state.bgTexture = payload;
+      // localStorage.setItem("bgTexture",state.bgTexture);
+    },
+    addEvent: (state, { payload }) => {
+      [...state.events, payload];
+    },
+  },
+});
 
-export const {addBgTexture} = themeSlice.actions
-export default themeSlice.reducer
+export const { addBgTexture, addEvent } = themeSlice.actions;
+export default themeSlice.reducer;
