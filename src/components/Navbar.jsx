@@ -59,7 +59,7 @@ const Navbar = () => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
       setIsScrolled(scrollPosition > 0);
-      console.log(scrollPosition);
+      // console.log(scrollPosition);
     };
 
     window.addEventListener("scroll", handleScroll);
