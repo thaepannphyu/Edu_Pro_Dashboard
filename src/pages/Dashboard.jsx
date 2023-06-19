@@ -1,17 +1,19 @@
-import React from 'react'
-import Progress from '../components/dashboard-componentes/Progress'
-import LineChart from '../components/dashboard-componentes/LineChart'
-import DoughnutChart from '../components/dashboard-componentes/DoughnutChart'
+import React from "react";
+import Progress from "../components/dashboard-componentes/Progress";
+import LineChart from "../components/dashboard-componentes/LineChart";
+import DoughnutChart from "../components/dashboard-componentes/DoughnutChart";
+import { StateContextCustom } from "../components/context/StateContext";
 
 const Dashboard = () => {
+  const { isSidebarOpen } = StateContextCustom();
   return (
-    <div className=''>
-      <Progress />
-      <div className=' flex justify-center gap-8 my-8'>
-      <LineChart/>
-      <DoughnutChart/>
-      </div>
+      <div className=" flex flex-col gap-7">
+        <Progress />
+        <div className={`w-[95%] flex max-lg:flex-col mx-auto gap-7 mb-7`}>
+          <LineChart />
+          <DoughnutChart />
+        </div>
     </div>
-  )
-}
-export default Dashboard
+  );
+};
+export default Dashboard;

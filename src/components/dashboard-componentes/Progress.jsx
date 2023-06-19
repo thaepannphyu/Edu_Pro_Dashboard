@@ -8,7 +8,8 @@ import { BsArrowUp } from "react-icons/bs";
 
 const Progress = () => {
   return (
-    <div className=" bgTransparent progress rounded mt-10 mx-6 shadow-md">
+    <div className="flex justify-center">
+      <div className="w-[95%] bgTransparent progress rounded mt-10 shadow-md">
       <div className=" progress-main py-5 lg:py-1 px-6 lg:px-3">
         <div className=" progress-item flex flex-col gap-2 ">
           {/* title  */}
@@ -111,6 +112,7 @@ const Progress = () => {
           </div>
         </div>
       </div>
+    </div>
     </div>
   );
 };
