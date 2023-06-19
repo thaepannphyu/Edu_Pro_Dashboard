@@ -39,7 +39,7 @@ const Navbar = () => {
   }, []);
 
   return (
-    <div>
+    <div className=" z-30 relative">
       <div
         
         className={`sidebar ${isSidebarOpen ? "sidebar-transition" : ""} z-50`}>

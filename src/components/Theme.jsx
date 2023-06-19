@@ -39,7 +39,7 @@ const Theme = () => {
             <MdSettings className=' text-white text-2xl setting-icon'/>
         </p>
 
-        <div className={`${themeOpen ? " right-0" : "right-[-300px]"} z-100 top-0 fixed transition-all ease-in duration-200 `} >
+        <div className={`${themeOpen ? " right-0" : "right-[-300px]"} z-40 top-0 fixed transition-all ease-in duration-200 `} >
         
 
         <div className=' bg-black w-[260px] px-2 max-h-screen overflow-y-auto'>
