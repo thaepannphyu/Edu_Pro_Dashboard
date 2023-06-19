@@ -38,7 +38,7 @@ const DoughnutChart = () => {
     },
   };
   return (
-      <div className=" w-[30%] max-lg:w-[95%] bgTransparent flex flex-col gap-4 rounded">
+      <div className=" w-[33%] max-lg:w-[95%] bgTransparent flex flex-col gap-4 rounded shadow-md">
         <h2 className="flex mt-4 px-8 justify-between font-medium text-[rgba(255,255,255,1)] text-sm tracking-wide items-center">
           Weekly sales{" "}
           <span>
