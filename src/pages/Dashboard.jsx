@@ -7,8 +7,10 @@ const Dashboard = () => {
   return (
     <div className=''>
       <Progress />
+      <div className=' flex justify-center gap-8 my-8'>
       <LineChart/>
       <DoughnutChart/>
+      </div>
     </div>
   )
 }
