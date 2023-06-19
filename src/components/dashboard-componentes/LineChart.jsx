@@ -77,7 +77,7 @@ const LineChart = () => {
       };
   return (
     <div className=' w-[60%] justify-center max-lg:w-[100%] rounded bgTransparent shadow-md'>
-        <h1 className=' text-[rgba(255,255,255,1)] text-sm tracking-wide pl-10 py-4'>Title</h1>
+        <h1 className=' text-[rgba(255,255,255,0.9)] tracking-wider text-sm font-medium pl-10 py-4'>Title</h1>
         <hr className='border-t border-t-color' />
 
         <div className=' pl-10 pt-5 flex gap-4'>
