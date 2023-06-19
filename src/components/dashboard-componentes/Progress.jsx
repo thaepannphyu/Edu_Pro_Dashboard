@@ -21,7 +21,7 @@ const Progress = () => {
           {/* progress bar  */}
           <div className=" text-[16px] text-[#ffffff] py-2">
             <div className=" w-full bg-gray-400 rounded-full h-[3px] lg:h-[4px]">
-              <div className=" bg-white h-[3px] lg:h-[4px] rounded-full w-[75%] relative"></div>
+              <div className=" bg-white h-[3px] lg:h-[4px] rounded-full w-[75%] "></div>
             </div>
           </div>
           {/* sub title  */}
