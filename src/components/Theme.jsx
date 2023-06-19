@@ -35,7 +35,7 @@ const Theme = () => {
     ]
   return (
     <div className=''>
-        <p onClick={()=> setThemeOpen(!themeOpen)} className={` ${themeOpen? "right-[255px] " : "right-0" } top-[250px] cursor-pointer fixed transition-all ease-in duration-200 w-[40px] h-[40px] rounded flex justify-center items-center bg-black`}>
+        <p onClick={()=> setThemeOpen(!themeOpen)} className={` ${themeOpen? "right-[255px] " : "right-0" } top-[250px] cursor-pointer z-40 fixed transition-all ease-in duration-200 w-[40px] h-[40px] rounded flex justify-center items-center bg-black`}>
             <MdSettings className=' text-white text-2xl setting-icon'/>
         </p>
 

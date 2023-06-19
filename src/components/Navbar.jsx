@@ -39,7 +39,7 @@ const Navbar = () => {
   }, []);
 
   return (
-    <div className=" z-30 relative">
+    <div>
       <div
         
         className={`sidebar ${isSidebarOpen ? "sidebar-transition" : ""} z-50`}>
@@ -47,7 +47,7 @@ const Navbar = () => {
       </div>
       <nav
         
-        className={`  h-[65px] text-white p-4 flex fixed ${
+        className={` z-30 h-[65px] text-white p-4 flex fixed ${
           isSidebarOpen ? "navW" : " left-0 w-full"
         } transition-all ease-in duration-300 ${
           isScrolled ? " bg-black" : "bg-black bg-opacity-20"
