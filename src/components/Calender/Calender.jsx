@@ -150,7 +150,7 @@ const Calender = () => {
             </div>
 
             {/* max-400px:hidden < > and month 2023 start */}
-            <div className=" max-[400px]:hidden">
+            <div className=" max-[400px]:hidden justify-center flex items-center flex-col">
               <p className="title text-2xl max-[530px]:text-[20px] ">
                 {todayS?.toLocaleString("default", { month: "long" })}
                 <span> {todayS?.getFullYear()}</span>
