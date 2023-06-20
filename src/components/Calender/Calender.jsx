@@ -19,14 +19,14 @@ import { useDisclosure } from "@mantine/hooks";
 import { Modal, Group, Button } from "@mantine/core";
 import isSameDay from "date-fns/isSameDay";
 import { AiOutlineClose } from "react-icons/ai";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addEvent } from "../../redux/themeSlice";
-import { store } from "../../redux/store";
+
+import { HiBars3BottomRight } from "react-icons/hi2";
 
 const Calender = () => {
   let today = startOfToday();
 
-  const [eventList, SetEventList] = useState({});
   let eventArray = [];
   const [todayS, settoday] = useState(today);
   let stringFormat = format(todayS, "MMM-yyyy");
@@ -42,9 +42,13 @@ const Calender = () => {
   });
   // console.log(firstDayCurrentMonth);
   // console.log(stringFormat);
-  // const options = { weekday: "short" };
-  // let dayOfWeek = "";
-  // dayOfWeek = days[0].toLocaleString("en-US", options);
+  const options = { weekday: "short" };
+
+  const dayname = (day) => {
+    let nameDay = day.toLocaleString("en-US", options);
+
+    return nameDay;
+  };
 
   let startOfPreviousMonth = startOfMonth(addMonths(todayS, -1));
   let endOfPreviousMonth = endOfMonth(addMonths(todayS, -1));
@@ -94,62 +98,72 @@ const Calender = () => {
     });
   }, [todayS]);
   const [opened, { open, close }] = useDisclosure(false);
-  const [eventValue, setEventValue] = useState("");
+  const [eventValue, setEventValue] = useState(" ");
   const [oneClickDate, setOneClickDate] = useState("");
   const dispatch = useDispatch();
-
-  console.log(store.getState());
-
+  const events = useSelector((state) => state.themeSlice?.events);
+  const [togleEvent, setTogleEvent] = useState(false);
+  // let filteredEventDisplay = [];
+  // const filteredEventDisplayFun = () => {
+  //   filteredEventDisplay = events?.filter((event) =>
+  //     event.oneClickDate?.getMonth()
+  //   );
+  //   console.log(filteredEventDisplay);
+  // };
+  // filteredEventDisplayFun();
   return (
     <>
-      <div className=" flex justify-center items-center flex-col p-10 ">
+      <div className=" md:scale-[0.8] scale-[0.7] lg:scale-100 flex justify-center items-center flex-col lg:p-10 ">
         <div className="w-full flex justify-between">
-          <div className="w-full flex justify-between items-center">
-            <div className=" flex gap-3  items-center">
-              <button
-                onClick={() => {
-                  settoday(addMonths(todayS, -1));
+          <div className="w-full flex justify-between items-center mb-5">
+            <div className=" flex gap-3  items-center flex-wrap">
+              <div className=" flex gap-3  items-center">
+                <button
+                  onClick={() => {
+                    settoday(addMonths(todayS, -1));
 
-                  firstDayCurrentMonth = parse(
-                    currentMonth,
-                    "MMM-yyyy",
-                    todayS
-                  );
-                  lastDayOfCurrentMonth = endOfMonth(firstDayCurrentMonth);
-                }}
-                className=" px-3 py-1 
-           bg-white rounded">
-                <MdKeyboardArrowLeft className=" text-2xl" />
-              </button>
-              <button
-                onClick={() => {
-                  settoday(addMonths(todayS, +1));
+                    firstDayCurrentMonth = parse(
+                      currentMonth,
+                      "MMM-yyyy",
+                      todayS
+                    );
+                    lastDayOfCurrentMonth = endOfMonth(firstDayCurrentMonth);
+                  }}
+                  className=" px-3 py-1 
+           bg-white rounded hover:bg-slate-400">
+                  <MdKeyboardArrowLeft className=" text-2xl" />
+                </button>
+                <button
+                  onClick={() => {
+                    settoday(addMonths(todayS, +1));
 
-                  firstDayCurrentMonth = parse(
-                    currentMonth,
-                    "MMM-yyyy",
-                    todayS
-                  );
-                  lastDayOfCurrentMonth = endOfMonth(firstDayCurrentMonth);
-                }}
-                className=" px-3 py-1 
-           bg-white rounded">
-                <MdKeyboardArrowRight className=" text-2xl" />
-              </button>
+                    firstDayCurrentMonth = parse(
+                      currentMonth,
+                      "MMM-yyyy",
+                      todayS
+                    );
+                    lastDayOfCurrentMonth = endOfMonth(firstDayCurrentMonth);
+                  }}
+                  className=" px-3 py-1 
+           bg-white rounded hover:bg-slate-400">
+                  <MdKeyboardArrowRight className=" text-2xl" />
+                </button>
+              </div>
               <div
                 onClick={() => settoday(today)}
-                className=" w-[100px] bg-white rounded text-center px-3 py-1">
+                className=" w-[100px] bg-white cursor-pointer hover:bg-slate-400 rounded text-center px-3 py-1">
                 today
               </div>
             </div>
             <div>
-              <p className="title">July 2023</p>
+              <p className="title text-2xl">July 2023</p>
             </div>
             <div>
               <button
+                onClick={() => setTogleEvent(!togleEvent)}
                 className=" px-3 py-1 
-           bg-white shadow-sm">
-                Month
+           bg-white shadow-sm rounded hover:bg-slate-400 ">
+                Event List
               </button>
               {/* <button
                 className=" px-3 py-1 
@@ -164,49 +178,101 @@ const Calender = () => {
             </div>
           </div>
         </div>
-        <div className=" w-full">
-          <div className=" grid grid-cols-7  bgTransparent ">
-            <div className=" w-full py-3 borderTransparent title ">Sunday</div>
-            <div className="w-full py-3 borderTransparent title ">Monday</div>
-            <div className="w-full py-3 borderTransparent title">Tuesday</div>
-            <div className="w-full py-3 borderTransparent title">Wesdays</div>
-            <div className="w-full py-3 borderTransparent title">Thursday</div>
-            <div className="w-full py-3 borderTransparent title">Friday</div>
-            <div className="w-full py-3 borderTransparent title">Saturday</div>
-          </div>
-          <div className=" w-full">
-            <div className=" grid grid-cols-7 ">
-              {days.map((day, index) => (
-                <div
-                  onClick={() => {
-                    open();
-                    setOneClickDate(day);
-                  }}
-                  key={index}
-                  className={`p-6 h-[150px] flex  flex-col bgTransparent  borderTransparent`}>
-                  <div
-                    className={`w-[35px]  h-[35px] flex items-center justify-center ms-auto ${
-                      isToday(day) ? "bg-orange-400 text-black" : ""
-                    }  rounded-[50%] ${
-                      isSameMonth(day, todayS) && !isToday(day)
-                        ? "bg-slate-200 "
-                        : "title"
-                    }`}>
-                    <div className="">
-                      <time dateTime={format(day, "yyyy-MM-dd")}>
-                        {format(day, "d")}
-                      </time>
-                    </div>
-                  </div>
-                  <div
-                    className={`w-full p-6 ${
-                      isSameDay(day, eventList?.day) ? "block" : "hidden"
-                    } `}>
-                    {eventList?.event}
-                  </div>
-                </div>
-              ))}
+        <div className=" w-full flex justify-between gap-4 ">
+          {/* calendar body */}
+          <div className=" w-full ">
+            <div className=" grid grid-cols-7  bgTransparent ">
+              <div className=" w-full py-3 px-2 borderTransparent title ">
+                Sunday
+              </div>
+              <div className="w-full py-3 px-2 borderTransparent title ">
+                Monday
+              </div>
+              <div className="w-full py-3 px-2 borderTransparent title">
+                Tuesday
+              </div>
+              <div className="w-full py-3 px-2 borderTransparent title">
+                Wesdays
+              </div>
+              <div className="w-full py-3 px-2 borderTransparent title">
+                Thursday
+              </div>
+              <div className="w-full py-3 px-2 borderTransparent title">
+                Friday
+              </div>
+              <div className="w-full py-3 px-2 borderTransparent title">
+                Saturday
+              </div>
             </div>
+            <div className=" w-full">
+              <div className=" grid grid-cols-7 ">
+                {days.map((day, index) => (
+                  <div
+                    onClick={() => {
+                      open();
+                      setOneClickDate(day);
+                    }}
+                    key={index}
+                    className={`p-6 h-[150px] flex  flex-col bgTransparent  borderTransparent overflow-hidden`}>
+                    <div
+                      className={`w-[35px]  h-[35px] flex items-center justify-center ms-auto ${
+                        isToday(day) ? "bg-orange-400 text-black" : ""
+                      }  rounded-[50%] ${
+                        isSameMonth(day, todayS) && !isToday(day)
+                          ? "bg-slate-200 "
+                          : "title"
+                      }`}>
+                      <div className="">
+                        <time dateTime={format(day, "yyyy-MM-dd")}>
+                          {format(day, "d")}
+                        </time>
+                      </div>
+                    </div>
+                    {events.map((event, index) => (
+                      <div
+                        key={index}
+                        className={`w-full  ${
+                          isSameDay(day, event?.oneClickDate)
+                            ? "block"
+                            : "hidden"
+                        } title`}>
+                        {event?.eventValue}
+                      </div>
+                    ))}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+          {/* event list container */}
+          <div
+            className={`w-[40%] ${
+              togleEvent == true ? "flex " : "hidden "
+            }  bgTransparent p-3  flex-col gap-y-5 `}>
+            <div className=" w-full flex items-center ">
+              <div className=" w-[40%] flex items-center">
+                <HiBars3BottomRight className=" title" />
+              </div>
+              <div className=" w-[60%] title flex items-center gap-3">
+                <div>
+                  {todayS?.toLocaleString("default", { month: "long" })}
+                </div>
+                {todayS?.getFullYear()}
+              </div>
+            </div>
+            <ul className=" w-full ">
+              {events.map((event, index) => (
+                <li
+                  key={index}
+                  className={`w-full flex gap-5 mb-3 hover:text-orange-400 title`}>
+                  <div className="border-e-2 w-[10%] pe-3">
+                    <p className="">{event?.oneClickDate?.getDate()}</p>
+                    <small>{dayname(event?.oneClickDate)}</small>
+                  </div>
+                  <div className="">{event?.eventValue}</div>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </div>
@@ -218,19 +284,17 @@ const Calender = () => {
           onSubmit={(e) => {
             e.preventDefault();
 
-            SetEventList({
-              day: oneClickDate,
-              event: eventValue,
-            });
+            dispatch(addEvent({ oneClickDate, eventValue }));
             close();
-            setEventValue(null);
+            setEventValue("");
             // eventArray.push(eventList);
           }}
           className=" w-[200px]">
           <div className=" w-full ">
             <div className="w-[400px] flex justify-center gap-3 flex-col items-center">
-              <label htmlFor="">Type to create your event</label>
+              <label htmlFor="eventInput">Type to create your event</label>
               <input
+                id="eventInput"
                 value={eventValue}
                 onChange={(e) => {
                   setEventValue(e.target.value);
