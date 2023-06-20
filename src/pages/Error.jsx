@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 function Error() {
   return (
     <div className=" h-screen ">
-      <div className=" flex flex-col items-center justify-center gap-10 ">
+      <div className=" flex flex-col items-center justify-center gap-10 pt-20 ">
         <p className=" text-center text-3xl font-extrabold text-[#ffffffea]">
           Sorry ! Page not found
         </p>
