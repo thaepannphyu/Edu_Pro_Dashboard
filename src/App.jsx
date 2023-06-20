@@ -13,7 +13,7 @@ const App = () => {
     <>
       {bgTexture.length < 25 ? (
         <div
-          className=""
+          className=" min-h-screen"
           style={{
             backgroundImage: bgTexture
               ? `url(${bgTexture})`
@@ -27,7 +27,7 @@ const App = () => {
         </div>
       ) : (
         <div
-          className=""
+          className=" min-h-screen"
           style={{
             backgroundImage: bgTexture
               ? `${bgTexture}`
