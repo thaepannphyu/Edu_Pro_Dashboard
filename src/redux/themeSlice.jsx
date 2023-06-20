@@ -14,7 +14,7 @@ export const themeSlice = createSlice({
       // localStorage.setItem("bgTexture",state.bgTexture);
     },
     addEvent: (state, { payload }) => {
-      [...state.events, payload];
+      state.events = [...state.events, payload];
     },
   },
 });
