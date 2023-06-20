@@ -89,6 +89,19 @@ const Calender = () => {
     days.push(daysOfnext[i]);
   }
 
+  const [opened, { open, close }] = useDisclosure(false);
+  const [eventValue, setEventValue] = useState("");
+  const [oneClickDate, setOneClickDate] = useState("");
+  const dispatch = useDispatch();
+  const events = useSelector((state) => state.themeSlice?.events);
+
+  const [togleEvent, setTogleEvent] = useState(false);
+  let filteredEventDisplay = events.filter(
+    (event) =>
+      event?.oneClickDate?.toLocaleString("default", { month: "long" }) ==
+      todayS?.toLocaleString("default", { month: "long" })
+  );
+
   useEffect(() => {
     setCurrentMonth(format(todayS, "MMM-yyyy"));
     days = eachDayOfInterval({
@@ -108,14 +121,13 @@ const Calender = () => {
       start: startOfNextMonth,
       end: endOfNextMonth,
     });
+    filteredEventDisplay = events.filter(
+      (event) =>
+        event?.oneClickDate?.toLocaleString("default", { month: "long" }) ==
+        todayS?.toLocaleString("default", { month: "long" })
+    );
   }, [todayS]);
-  const [opened, { open, close }] = useDisclosure(false);
-  const [eventValue, setEventValue] = useState(" ");
-  const [oneClickDate, setOneClickDate] = useState("");
-  const dispatch = useDispatch();
-  const events = useSelector((state) => state.themeSlice?.events);
-  const [togleEvent, setTogleEvent] = useState(false);
-  // let filteredEventDisplay = [];
+  // console.log(filteredEventDisplay);
   // const filteredEventDisplayFun = () => {
   //   filteredEventDisplay = events?.filter((event) =>
   //     event.oneClickDate?.getMonth()
@@ -138,7 +150,7 @@ const Calender = () => {
             </div>
 
             {/* max-400px:hidden < > and month 2023 start */}
-            <div className=" max-[400px]:hidden">
+            <div className=" max-[400px]:hidden justify-center flex items-center flex-col">
               <p className="title text-2xl max-[530px]:text-[20px] ">
                 {todayS?.toLocaleString("default", { month: "long" })}
                 <span> {todayS?.getFullYear()}</span>
@@ -334,7 +346,9 @@ const Calender = () => {
               togleEvent == true ? "flex w-full  lg:w-[28%]" : "hidden "
             }  bgTransparent p-3  flex-col gap-y-5 `}>
             <div className=" w-full flex items-center ">
-              <div className=" w-[40%] flex items-center">
+              <div
+                onClick={() => setTogleEvent(false)}
+                className=" w-[40%] flex items-center">
                 <HiBars3BottomRight className=" title" />
               </div>
               <div className=" w-[60%] title flex items-center gap-3">
@@ -345,7 +359,7 @@ const Calender = () => {
               </div>
             </div>
             <ul className=" w-full ">
-              {events.map((event, index) => (
+              {filteredEventDisplay.map((event, index) => (
                 <li
                   key={index}
                   className={`w-full flex gap-5 mb-3 hover:text-orange-400 title`}>
@@ -362,21 +376,26 @@ const Calender = () => {
       </div>
       <Modal opened={opened} onClose={close} withCloseButton={false}>
         <button onClick={() => close()}>
-          <AiOutlineClose />
+          <AiOutlineClose className=" text-orange-600" />
         </button>
         <form
           onSubmit={(e) => {
             e.preventDefault();
-
-            dispatch(addEvent({ oneClickDate, eventValue }));
+            if (eventValue.length) {
+              dispatch(addEvent({ oneClickDate, eventValue }));
+              setEventValue("");
+            }
+            // console.log(eventValue.length);
             close();
-            setEventValue("");
+
             // eventArray.push(eventList);
           }}
-          className=" w-[200px]">
+          className="  flex flex-col justify-center items-center gap-5">
           <div className=" w-full ">
             <div className="w-[400px] flex justify-center gap-3 flex-col items-center">
-              <label htmlFor="eventInput">Type to create your event</label>
+              <label htmlFor="eventInput" className=" text-teal-600">
+                Type to create your event
+              </label>
               <input
                 id="eventInput"
                 value={eventValue}
@@ -389,6 +408,11 @@ const Calender = () => {
               />
             </div>
           </div>
+          <button
+            onClick={() => close()}
+            className="mx-auto px-4 py-2 bg-teal-400 rounded hover:bg-slate-400 hover:text-white">
+            Note it
+          </button>
         </form>
       </Modal>
     </>
