@@ -41,12 +41,14 @@ const Navbar = () => {
   return (
     <div>
       <div
-        
         className={`sidebar ${isSidebarOpen ? "sidebar-transition" : ""} z-50`}>
-        <Sidebar isOpen={isSidebarOpen} isScrolled={isScrolled} toggleSidebar={toggleSidebar} />
+        <Sidebar
+          isOpen={isSidebarOpen}
+          isScrolled={isScrolled}
+          toggleSidebar={toggleSidebar}
+        />
       </div>
       <nav
-        
         className={` z-30 h-[65px] text-white p-4 flex fixed ${
           isSidebarOpen ? "navW" : " left-0 w-full"
         } transition-all ease-in duration-300 ${
@@ -64,13 +66,13 @@ const Navbar = () => {
                 className=" bg-transparent text-sm outline-none"
                 placeholder="Enter Keywords"
               />
-              <p className=" text-[#ffffffc2] text-xl">
+              <p className=" text-[#ffffffc2] text-xl cursor-pointer">
                 <BiSearch />
               </p>
             </div>
           </div>
-          <div className=" flex items-center gap-5 fixed mr-5 right-0">
-            <span className=" text-xl h-icon">
+          <div className=" flex items-center gap-5 fixed mr-5 right-0 cursor-pointer">
+            <span className=" text-xl h-icon ">
               <FiMail />
             </span>
             <span className=" text-xl h-icon">
