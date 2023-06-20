@@ -20,7 +20,7 @@ import { Modal, Group, Button } from "@mantine/core";
 import isSameDay from "date-fns/isSameDay";
 import { AiOutlineClose } from "react-icons/ai";
 import { useDispatch, useSelector } from "react-redux";
-import { addEvent } from "../redux/themeSlice";
+import { addEvent } from "../../redux/themeSlice";
 
 import { HiBars3BottomRight } from "react-icons/hi2";
 
