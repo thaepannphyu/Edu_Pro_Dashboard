@@ -31,7 +31,8 @@ const Theme = () => {
         {id: 12, name:"linear-gradient(45deg, #65379b, #886aea)"},
         {id: 13, name:" linear-gradient(180deg, #ff5447, #f1076f)"},
         {id: 14, name:"linear-gradient(180deg, #08a50e, #69bb03)"},
-        // {id: 15, name:"linear-gradient(45deg, #6a11cb, #2575fc)"},
+        {id: 15, name:"linear-gradient(45deg, #6a11cb, #2575fc)"},
+        {id: 16, name:"linear-gradient(45deg, #792248, #944b48)"},
     ]
   return (
     <div className=''>
