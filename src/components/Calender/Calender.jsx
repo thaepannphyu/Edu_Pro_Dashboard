@@ -137,13 +137,13 @@ const Calender = () => {
   // filteredEventDisplayFun();
   return (
     <>
-      <div className=" flex justify-center items-center flex-col p-10 ">
+      <div className=" flex justify-center items-center flex-col px-3 py-10 lg:p-10 md:p-10  ">
         <div className="w-full flex justify-between">
           <div className="w-full flex justify-between items-center mb-5">
             <div className="">
               <div
                 onClick={() => settoday(today)}
-                className=" w-[100px] max-[530px]:w-[90px] max-[530px]:text-[15px] max-[340px]:text-[13px] bg-white cursor-pointer hover:bg-slate-400 rounded text-center px-3 py-2 max-[340px]:w-[60px]
+                className=" max-[530px]:w-[90px] max-[530px]:text-[15px] max-[340px]:text-[13px] bg-white cursor-pointer hover:bg-slate-400 rounded text-center px-3 py-2 max-[340px]:w-[60px]
                 ">
                 Today
               </div>
@@ -300,7 +300,7 @@ const Calender = () => {
               </div>
             </div>
             <div className=" w-full">
-              <div className=" grid grid-cols-7 ">
+              <div className=" grid grid-cols-7 overflow-hidden">
                 {days.map((day, index) => (
                   <div
                     onClick={() => {
@@ -312,14 +312,20 @@ const Calender = () => {
                      flex flex-col bgTransparent borderTransparent hover:bg-slate-200 hover:bg-transparent  overflow-hidden cursor-pointer`}>
                     <div
                       className={`w-[35px] h-[35px] max-sm:w-[30px] max-sm:h-[30px] max-[430px]:w-[22px] max-[430px]:h-[22px] max-[330px]:w-[18px] max-[330px]:h-[18px] max-[430px]:text-[12px] flex items-center justify-center lg:ms-auto md:ms-auto ${
-                        isToday(day) ? "bg-orange-400 text-black" : ""
+                        isToday(day) ? "bg-orange-400 text-black " : ""
                       }  rounded-[50%] ${
                         isSameMonth(day, todayS) && !isToday(day)
-                          ? "bg-slate-200 "
+                          ? "lg:bg-slate-200 md:bg-slate-200 "
                           : "title"
                       }`}>
-                      <div className="">
-                        <time dateTime={format(day, "yyyy-MM-dd")}>
+                      <div>
+                        <time
+                          dateTime={format(day, "yyyy-MM-dd")}
+                          className={` ${
+                            isSameMonth(day, todayS)
+                              ? "text-white"
+                              : "text-black"
+                          } lg:text-black md:text-black`}>
                           {format(day, "d")}
                         </time>
                       </div>
@@ -331,7 +337,15 @@ const Calender = () => {
                           isSameDay(day, event?.oneClickDate)
                             ? "block"
                             : "hidden"
-                        } title`}>
+                        } title text-white ${
+                          index % 3 == 1
+                            ? " bg-pink-300 text-black"
+                            : "bg-teal-500"
+                        } ${index % 5 == 2 && "bg-rose-400"}
+                        ${index % 4 == 2 && "bg-violet-400"}
+                        ${index % 2 == 0 && "bg-blue-400"}
+                         ${index % 7 == 1 && " bg-fuchsia-800"}
+                         rounded mt-2 lg:px-2 md:px-2 `}>
                         {event?.eventValue}
                       </div>
                     ))}
