@@ -113,7 +113,7 @@ const Calender = () => {
   // filteredEventDisplayFun();
   return (
     <>
-      <div className=" md:scale-[0.8] scale-[0.7] lg:scale-100 flex justify-center items-center flex-col lg:p-10 ">
+      <div className=" md:scale-[0.8]  lg:scale-100 flex justify-center items-center flex-col lg:p-10 ">
         <div className="w-full flex justify-between">
           <div className="w-full flex justify-between items-center mb-5">
             <div className=" flex gap-3  items-center flex-wrap">
@@ -178,30 +178,33 @@ const Calender = () => {
             </div>
           </div>
         </div>
-        <div className=" w-full flex justify-between gap-4 ">
+        <div className=" w-full flex justify-between  flex-wrap gap-4">
           {/* calendar body */}
-          <div className=" w-full ">
+          <div
+            className={`${
+              togleEvent == true ? "w-full  md:w-full  lg:w-[70%]" : "w-full"
+            }`}>
             <div className=" grid grid-cols-7  bgTransparent ">
               <div className=" w-full py-3 px-2 borderTransparent title ">
-                Sunday
+                SUN
               </div>
               <div className="w-full py-3 px-2 borderTransparent title ">
-                Monday
+                MON
               </div>
               <div className="w-full py-3 px-2 borderTransparent title">
-                Tuesday
+                TUE
               </div>
               <div className="w-full py-3 px-2 borderTransparent title">
-                Wesdays
+                WED
               </div>
               <div className="w-full py-3 px-2 borderTransparent title">
-                Thursday
+                THU
               </div>
               <div className="w-full py-3 px-2 borderTransparent title">
-                Friday
+                FRI
               </div>
               <div className="w-full py-3 px-2 borderTransparent title">
-                Saturday
+                SAT
               </div>
             </div>
             <div className=" w-full">
@@ -213,9 +216,9 @@ const Calender = () => {
                       setOneClickDate(day);
                     }}
                     key={index}
-                    className={`p-6 h-[150px] flex  flex-col bgTransparent  borderTransparent overflow-hidden`}>
+                    className={`lg:p-6 md:p-6 p-2 h-[150px] flex  flex-col  bgTransparent  borderTransparent overflow-hidden`}>
                     <div
-                      className={`w-[35px]  h-[35px] flex items-center justify-center ms-auto ${
+                      className={`w-[35px]  h-[35px] flex items-center  justify-center  lg:ms-auto md:ms-auto ${
                         isToday(day) ? "bg-orange-400 text-black" : ""
                       }  rounded-[50%] ${
                         isSameMonth(day, todayS) && !isToday(day)
@@ -246,8 +249,8 @@ const Calender = () => {
           </div>
           {/* event list container */}
           <div
-            className={`w-[40%] ${
-              togleEvent == true ? "flex " : "hidden "
+            className={` ${
+              togleEvent == true ? "flex w-full  lg:w-[28%]" : "hidden "
             }  bgTransparent p-3  flex-col gap-y-5 `}>
             <div className=" w-full flex items-center ">
               <div className=" w-[40%] flex items-center">
