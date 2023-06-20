@@ -13,7 +13,7 @@ import { CgProfile } from "react-icons/cg";
 import { Link, NavLink } from "react-router-dom";
 import "./sidebar.css";
 
-const Sidebar = ({ isOpen, isScrolled , toggleSidebar }) => {
+const Sidebar = ({ isOpen, isScrolled, toggleSidebar }) => {
   const handleClick = (event) => {
     event.stopPropagation();
   };
@@ -24,18 +24,20 @@ const Sidebar = ({ isOpen, isScrolled , toggleSidebar }) => {
       }  transition-all ease-in duration-[330ms]`}>
       {/* Sidebar content */}
       <div
-        className={`sidebar-item flex gap-10 items-center px-10 py-5 h-[65px] transition-all ease-in duration-300
+        className={`sidebar-item flex gap-14 items-center ps-5 py-5 h-[65px] transition-all ease-in duration-300
       ${isScrolled ? " bg-black" : "bg-black bg-opacity-30"} `}>
-        <Link to={"/"}>
+        <Link to={"/"} className=" flex items-center gap-4">
           <img
-            className=" w-[100px] sidebar-item"
+            className=" sidebar-item w-12"
             onClick={handleClick}
-            src="https://eduvibe.devsvibe.com/main/wp-content/uploads/2023/01/logo-2.png"
+            src="https://themewagon.github.io/dashtreme/assets/images/logo-icon.png"
             alt=""
           />
+          <p className=" text-[#ffffffa6] text-lg font-bold ">Edu-Pro</p>
         </Link>
+        
         <p onClick={toggleSidebar}>
-          <BsBoxArrowLeft className=" text-[#ffffffa6] hover:text-[#ffffff] cursor-pointer closeBtn text-2xl" />
+          <BsBoxArrowLeft className=" text-[#ffffffa6]  hover:text-[#ffffff] cursor-pointer closeBtn text-2xl" />
         </p>
       </div>
       <hr className=" bg-slate-500 border-0 py-[0.2px] " />
