@@ -19,6 +19,7 @@ const Navbar = () => {
   const [showBox, setShowBox] = useState(false);
 
   const handleClick = () => {
+    event.stopPropagation();
     setShowBox(!showBox);
   };
 
@@ -35,6 +36,22 @@ const Navbar = () => {
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  const handleOutsideClick = (event) => {
+    if (boxRef.current && !boxRef.current.contains(event.target)) {
+      setShowBox(false);
+    }
+  };
+
+  const boxRef = useRef(null);
+
+  useEffect(() => {
+    document.addEventListener("click", handleOutsideClick);
+
+    return () => {
+      document.removeEventListener("click", handleOutsideClick);
     };
   }, []);
 
@@ -81,42 +98,42 @@ const Navbar = () => {
             <span className=" text-xl h-icon">
               <BsFlagFill />
             </span>
-            <span>
+            <span ref={boxRef}>
               <img
                 onClick={handleClick}
                 className={`w-[35px] h-[35px] navbar-profile-shadow rounded-full `}
                 src={Profile}
                 alt=""
               />
+              {showBox && (
+                <div
+                  ref={boxRef}
+                  className={`absolute bg-gray-700 bg-opacity-90 w-[200px] top-full ${
+                    isSidebarOpen ? " box" : " right-4"
+                  }  mt-2 p-4 rounded shadow-lg `}>
+                  <div className=" flex flex-col items-start gap-2">
+                    <Link
+                      to={"/register"}
+                      className=" w-full flex items-center justify-between px-2 py-1 text-left rounded text-[#ffffffc9] hover:text-white hover:bg-[#ffffff33]">
+                      Register <CgProfile className=" text-xl" />
+                    </Link>
+
+                    <Link
+                      to={"/login"}
+                      className=" mt-2 flex items-center justify-between  w-full px-2 py-1 text-left rounded text-[#ffffffc9] hover:text-white hover:bg-[#ffffff33]">
+                      LogIn <BiLockAlt className=" text-xl" />
+                    </Link>
+                    <Link
+                      to={"/"}
+                      className=" mt-2 flex items-center justify-between  w-full px-2 py-1 text-left rounded text-[#ffffffc9] hover:text-white hover:bg-[#ffffff33]">
+                      LogOut <IoExitOutline className=" text-xl" />
+                    </Link>
+                  </div>
+                </div>
+              )}
             </span>
           </div>
         </div>
-
-        {showBox && (
-          <div
-            className={`absolute bg-gray-700 bg-opacity-90 w-[200px] top-full ${
-              isSidebarOpen ? " box" : " right-4"
-            }  mt-2 p-4 rounded shadow-lg `}>
-            <div className=" flex flex-col items-start gap-2">
-              <Link
-                to={"/register"}
-                className=" w-full flex items-center justify-between px-2 py-1 text-left rounded text-[#ffffffc9] hover:text-white hover:bg-[#ffffff33]">
-                Register <CgProfile className=" text-xl" />
-              </Link>
-
-              <Link
-                to={"/login"}
-                className=" mt-2 flex items-center justify-between  w-full px-2 py-1 text-left rounded text-[#ffffffc9] hover:text-white hover:bg-[#ffffff33]">
-                LogIn <BiLockAlt className=" text-xl" />
-              </Link>
-              <Link
-                to={"/"}
-                className=" mt-2 flex items-center justify-between  w-full px-2 py-1 text-left rounded text-[#ffffffc9] hover:text-white hover:bg-[#ffffff33]">
-                LogOut <IoExitOutline className=" text-xl" />
-              </Link>
-            </div>
-          </div>
-        )}
       </nav>
     </div>
   );
