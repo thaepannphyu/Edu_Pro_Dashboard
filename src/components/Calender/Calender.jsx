@@ -25,18 +25,18 @@ import { addEvent } from "../../redux/themeSlice";
 import { HiBars3BottomRight } from "react-icons/hi2";
 
 const Calender = () => {
-  const [windowWidth,setWindowWidth] = useState(window.innerWidth)
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   // console.log(windowWidth);
-  useEffect(()=>{
-    const handlerResize = ()=>{
-      setWindowWidth(window.innerWidth)
+  useEffect(() => {
+    const handlerResize = () => {
+      setWindowWidth(window.innerWidth);
     };
     window.addEventListener("resize", handlerResize);
-    return()=>{
+    return () => {
       window.removeEventListener("resize", handlerResize);
-    }
-  },[])
-  
+    };
+  }, []);
+
   let today = startOfToday();
 
   let eventArray = [];
@@ -139,7 +139,10 @@ const Calender = () => {
 
             {/* max-400px:hidden < > and month 2023 start */}
             <div className=" max-[400px]:hidden">
-              <p className="title text-2xl max-[530px]:text-[20px] ">July 2023</p>
+              <p className="title text-2xl max-[530px]:text-[20px] ">
+                {todayS?.toLocaleString("default", { month: "long" })}
+                <span> {todayS?.getFullYear()}</span>
+              </p>
               <div className=" flex gap-3 mt-2 items-center">
                 <button
                   onClick={() => {
@@ -198,37 +201,32 @@ const Calender = () => {
 
         {/* laptop view hidden < > and month 2023 start*/}
         <div className=" hidden max-[400px]:flex max-[400px]:gap-8 mb-5 ">
-            <button
-                  onClick={() => {
-                    settoday(addMonths(todayS, -1));
+          <button
+            onClick={() => {
+              settoday(addMonths(todayS, -1));
 
-                    firstDayCurrentMonth = parse(
-                      currentMonth,
-                      "MMM-yyyy",
-                      todayS
-                    );
-                    lastDayOfCurrentMonth = endOfMonth(firstDayCurrentMonth);
-                  }}
-                  className=" px-3 py-1 max-[530px]:px-1 max-[340px]:px-0 max-[530px]:text-[15px]
+              firstDayCurrentMonth = parse(currentMonth, "MMM-yyyy", todayS);
+              lastDayOfCurrentMonth = endOfMonth(firstDayCurrentMonth);
+            }}
+            className=" px-3 py-1 max-[530px]:px-1 max-[340px]:px-0 max-[530px]:text-[15px]
            bg-white rounded hover:bg-slate-400">
-                  <MdKeyboardArrowLeft className=" text-2xl" />
-            </button>
-              <p className="title text-2xl max-[325px]:text-[18px]">July 2023</p>
-            <button
-                  onClick={() => {
-                    settoday(addMonths(todayS, +1));
+            <MdKeyboardArrowLeft className=" text-2xl" />
+          </button>
+          <p className="title text-2xl max-[325px]:text-[18px]">
+            {todayS?.toLocaleString("default", { month: "long" })}
+            <span> {todayS?.getFullYear()}</span>
+          </p>
+          <button
+            onClick={() => {
+              settoday(addMonths(todayS, +1));
 
-                    firstDayCurrentMonth = parse(
-                      currentMonth,
-                      "MMM-yyyy",
-                      todayS
-                    );
-                    lastDayOfCurrentMonth = endOfMonth(firstDayCurrentMonth);
-                  }}
-                  className=" px-3 py-1 max-[530px]:px-1 max-[340px]:px-0 max-[530px]:text-[15px]
+              firstDayCurrentMonth = parse(currentMonth, "MMM-yyyy", todayS);
+              lastDayOfCurrentMonth = endOfMonth(firstDayCurrentMonth);
+            }}
+            className=" px-3 py-1 max-[530px]:px-1 max-[340px]:px-0 max-[530px]:text-[15px]
            bg-white rounded hover:bg-slate-400">
-                  <MdKeyboardArrowRight className=" text-2xl" />
-            </button>
+            <MdKeyboardArrowRight className=" text-2xl" />
+          </button>
         </div>
         {/* laptop view hidden < > and month 2023 end*/}
 
@@ -240,25 +238,53 @@ const Calender = () => {
             }`}>
             <div className=" grid grid-cols-7 bgTransparent ">
               <div className=" w-full py-3 px-2 borderTransparent title  max-[500px]:text-[15px]">
-                {windowWidth <= 430 ? (<p className=" text-center font-bold">S</p>):(<p>SUN</p>)}
+                {windowWidth <= 430 ? (
+                  <p className=" text-center font-bold">S</p>
+                ) : (
+                  <p>SUN</p>
+                )}
               </div>
               <div className="w-full py-3 px-2 borderTransparent title  max-[500px]:text-[15px]">
-                {windowWidth <= 430 ? (<p className=" text-center font-bold">M</p>):(<p>MON</p>)}
+                {windowWidth <= 430 ? (
+                  <p className=" text-center font-bold">M</p>
+                ) : (
+                  <p>MON</p>
+                )}
               </div>
               <div className="w-full py-3 px-2 borderTransparent title max-[500px]:text-[15px]">
-                {windowWidth <= 430 ? (<p className=" text-center font-bold">T</p>):(<p>TUE</p>)}
+                {windowWidth <= 430 ? (
+                  <p className=" text-center font-bold">T</p>
+                ) : (
+                  <p>TUE</p>
+                )}
               </div>
               <div className="w-full py-3 px-2 borderTransparent title max-[500px]:text-[15px]">
-                {windowWidth <= 430 ? (<p className=" text-center font-bold">W</p>):(<p>WED</p>)}
+                {windowWidth <= 430 ? (
+                  <p className=" text-center font-bold">W</p>
+                ) : (
+                  <p>WED</p>
+                )}
               </div>
               <div className="w-full py-3 px-2 borderTransparent title max-[500px]:text-[15px]">
-                {windowWidth <= 430 ? (<p className=" text-center font-bold">T</p>):(<p>THU</p>)}
+                {windowWidth <= 430 ? (
+                  <p className=" text-center font-bold">T</p>
+                ) : (
+                  <p>THU</p>
+                )}
               </div>
               <div className="w-full py-3 px-2 borderTransparent title max-[500px]:text-[15px]">
-                {windowWidth <= 430 ? (<p className=" text-center font-bold">F</p>):(<p>FRI</p>)}
+                {windowWidth <= 430 ? (
+                  <p className=" text-center font-bold">F</p>
+                ) : (
+                  <p>FRI</p>
+                )}
               </div>
               <div className="w-full py-3 px-2 borderTransparent title max-[500px]:text-[15px]">
-                {windowWidth <= 430 ? (<p className=" text-center font-bold">S</p>):(<p>SAT</p>)}
+                {windowWidth <= 430 ? (
+                  <p className=" text-center font-bold">S</p>
+                ) : (
+                  <p>SAT</p>
+                )}
               </div>
             </div>
             <div className=" w-full">
