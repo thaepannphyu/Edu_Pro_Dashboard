@@ -297,7 +297,7 @@ const Calender = () => {
                     }}
                     key={index}
                     className={`lg:p-6 md:p-6 p-2 h-[150px] max-lg:h-[130px] max-md:h-[100px] max-[500px]:h-[80px]
-                     flex flex-col bgTransparent borderTransparent overflow-hidden cursor-pointer`}>
+                     flex flex-col bgTransparent borderTransparent hover:bg-slate-200 hover:bg-transparent  overflow-hidden cursor-pointer`}>
                     <div
                       className={`w-[35px] h-[35px] max-sm:w-[30px] max-sm:h-[30px] max-[430px]:w-[22px] max-[430px]:h-[22px] max-[330px]:w-[18px] max-[330px]:h-[18px] max-[430px]:text-[12px] flex items-center justify-center lg:ms-auto md:ms-auto ${
                         isToday(day) ? "bg-orange-400 text-black" : ""
