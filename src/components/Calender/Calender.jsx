@@ -25,6 +25,18 @@ import { addEvent } from "../../redux/themeSlice";
 import { HiBars3BottomRight } from "react-icons/hi2";
 
 const Calender = () => {
+  const [windowWidth,setWindowWidth] = useState(window.innerWidth)
+  // console.log(windowWidth);
+  useEffect(()=>{
+    const handlerResize = ()=>{
+      setWindowWidth(window.innerWidth)
+    };
+    window.addEventListener("resize", handlerResize);
+    return()=>{
+      window.removeEventListener("resize", handlerResize);
+    }
+  },[])
+  
   let today = startOfToday();
 
   let eventArray = [];
@@ -113,11 +125,22 @@ const Calender = () => {
   // filteredEventDisplayFun();
   return (
     <>
-      <div className=" md:scale-[0.8]  lg:scale-100 flex justify-center items-center flex-col lg:p-10 ">
+      <div className=" flex justify-center items-center flex-col p-10 ">
         <div className="w-full flex justify-between">
           <div className="w-full flex justify-between items-center mb-5">
-            <div className=" flex gap-3  items-center flex-wrap">
-              <div className=" flex gap-3  items-center">
+            <div className="">
+              <div
+                onClick={() => settoday(today)}
+                className=" w-[100px] max-[530px]:w-[90px] max-[530px]:text-[15px] max-[340px]:text-[13px] bg-white cursor-pointer hover:bg-slate-400 rounded text-center px-3 py-2 max-[340px]:w-[60px]
+                ">
+                Today
+              </div>
+            </div>
+
+            {/* max-400px:hidden < > and month 2023 start */}
+            <div className=" max-[400px]:hidden">
+              <p className="title text-2xl max-[530px]:text-[20px] ">July 2023</p>
+              <div className=" flex gap-3 mt-2 items-center">
                 <button
                   onClick={() => {
                     settoday(addMonths(todayS, -1));
@@ -129,7 +152,7 @@ const Calender = () => {
                     );
                     lastDayOfCurrentMonth = endOfMonth(firstDayCurrentMonth);
                   }}
-                  className=" px-3 py-1 
+                  className=" px-3 py-1 max-[530px]:px-1 max-[340px]:px-0 max-[530px]:text-[15px]
            bg-white rounded hover:bg-slate-400">
                   <MdKeyboardArrowLeft className=" text-2xl" />
                 </button>
@@ -144,24 +167,18 @@ const Calender = () => {
                     );
                     lastDayOfCurrentMonth = endOfMonth(firstDayCurrentMonth);
                   }}
-                  className=" px-3 py-1 
+                  className=" px-3 py-1 max-[530px]:px-1 max-[340px]:px-0 max-[530px]:text-[15px]
            bg-white rounded hover:bg-slate-400">
                   <MdKeyboardArrowRight className=" text-2xl" />
                 </button>
               </div>
-              <div
-                onClick={() => settoday(today)}
-                className=" w-[100px] bg-white cursor-pointer hover:bg-slate-400 rounded text-center px-3 py-1">
-                today
-              </div>
             </div>
-            <div>
-              <p className="title text-2xl">July 2023</p>
-            </div>
+            {/* max-400px:hidden < > and month 2023 end*/}
+
             <div>
               <button
                 onClick={() => setTogleEvent(!togleEvent)}
-                className=" px-3 py-1 
+                className=" px-3 py-2 max-[530px]:px-2 max-[530px]:text-[15px] max-[340px]:text-[13px]
            bg-white shadow-sm rounded hover:bg-slate-400 ">
                 Event List
               </button>
@@ -178,33 +195,70 @@ const Calender = () => {
             </div>
           </div>
         </div>
+
+        {/* laptop view hidden < > and month 2023 start*/}
+        <div className=" hidden max-[400px]:flex max-[400px]:gap-8 mb-5 ">
+            <button
+                  onClick={() => {
+                    settoday(addMonths(todayS, -1));
+
+                    firstDayCurrentMonth = parse(
+                      currentMonth,
+                      "MMM-yyyy",
+                      todayS
+                    );
+                    lastDayOfCurrentMonth = endOfMonth(firstDayCurrentMonth);
+                  }}
+                  className=" px-3 py-1 max-[530px]:px-1 max-[340px]:px-0 max-[530px]:text-[15px]
+           bg-white rounded hover:bg-slate-400">
+                  <MdKeyboardArrowLeft className=" text-2xl" />
+            </button>
+              <p className="title text-2xl max-[325px]:text-[18px]">July 2023</p>
+            <button
+                  onClick={() => {
+                    settoday(addMonths(todayS, +1));
+
+                    firstDayCurrentMonth = parse(
+                      currentMonth,
+                      "MMM-yyyy",
+                      todayS
+                    );
+                    lastDayOfCurrentMonth = endOfMonth(firstDayCurrentMonth);
+                  }}
+                  className=" px-3 py-1 max-[530px]:px-1 max-[340px]:px-0 max-[530px]:text-[15px]
+           bg-white rounded hover:bg-slate-400">
+                  <MdKeyboardArrowRight className=" text-2xl" />
+            </button>
+        </div>
+        {/* laptop view hidden < > and month 2023 end*/}
+
         <div className=" w-full flex justify-between  flex-wrap gap-4">
           {/* calendar body */}
           <div
             className={`${
               togleEvent == true ? "w-full  md:w-full  lg:w-[70%]" : "w-full"
             }`}>
-            <div className=" grid grid-cols-7  bgTransparent ">
-              <div className=" w-full py-3 px-2 borderTransparent title ">
-                SUN
+            <div className=" grid grid-cols-7 bgTransparent ">
+              <div className=" w-full py-3 px-2 borderTransparent title  max-[500px]:text-[15px]">
+                {windowWidth <= 430 ? (<p className=" text-center font-bold">S</p>):(<p>SUN</p>)}
               </div>
-              <div className="w-full py-3 px-2 borderTransparent title ">
-                MON
+              <div className="w-full py-3 px-2 borderTransparent title  max-[500px]:text-[15px]">
+                {windowWidth <= 430 ? (<p className=" text-center font-bold">M</p>):(<p>MON</p>)}
               </div>
-              <div className="w-full py-3 px-2 borderTransparent title">
-                TUE
+              <div className="w-full py-3 px-2 borderTransparent title max-[500px]:text-[15px]">
+                {windowWidth <= 430 ? (<p className=" text-center font-bold">T</p>):(<p>TUE</p>)}
               </div>
-              <div className="w-full py-3 px-2 borderTransparent title">
-                WED
+              <div className="w-full py-3 px-2 borderTransparent title max-[500px]:text-[15px]">
+                {windowWidth <= 430 ? (<p className=" text-center font-bold">W</p>):(<p>WED</p>)}
               </div>
-              <div className="w-full py-3 px-2 borderTransparent title">
-                THU
+              <div className="w-full py-3 px-2 borderTransparent title max-[500px]:text-[15px]">
+                {windowWidth <= 430 ? (<p className=" text-center font-bold">T</p>):(<p>THU</p>)}
               </div>
-              <div className="w-full py-3 px-2 borderTransparent title">
-                FRI
+              <div className="w-full py-3 px-2 borderTransparent title max-[500px]:text-[15px]">
+                {windowWidth <= 430 ? (<p className=" text-center font-bold">F</p>):(<p>FRI</p>)}
               </div>
-              <div className="w-full py-3 px-2 borderTransparent title">
-                SAT
+              <div className="w-full py-3 px-2 borderTransparent title max-[500px]:text-[15px]">
+                {windowWidth <= 430 ? (<p className=" text-center font-bold">S</p>):(<p>SAT</p>)}
               </div>
             </div>
             <div className=" w-full">
@@ -216,9 +270,10 @@ const Calender = () => {
                       setOneClickDate(day);
                     }}
                     key={index}
-                    className={`lg:p-6 md:p-6 p-2 h-[150px] flex  flex-col  bgTransparent  borderTransparent overflow-hidden`}>
+                    className={`lg:p-6 md:p-6 p-2 h-[150px] max-lg:h-[130px] max-md:h-[100px] max-[500px]:h-[80px]
+                     flex flex-col bgTransparent borderTransparent overflow-hidden cursor-pointer`}>
                     <div
-                      className={`w-[35px]  h-[35px] flex items-center  justify-center  lg:ms-auto md:ms-auto ${
+                      className={`w-[35px] h-[35px] max-sm:w-[30px] max-sm:h-[30px] max-[430px]:w-[22px] max-[430px]:h-[22px] max-[330px]:w-[18px] max-[330px]:h-[18px] max-[430px]:text-[12px] flex items-center justify-center lg:ms-auto md:ms-auto ${
                         isToday(day) ? "bg-orange-400 text-black" : ""
                       }  rounded-[50%] ${
                         isSameMonth(day, todayS) && !isToday(day)
