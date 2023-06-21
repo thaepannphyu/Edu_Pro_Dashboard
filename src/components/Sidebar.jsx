@@ -31,8 +31,9 @@ const Sidebar = ({ isOpen, isScrolled, toggleSidebar }) => {
   useEffect(() => {
     if (windowWidth <= 900 ) {
       toggleSidebar(false);
-    }else {
-      toggleSidebar(true)
+    }
+    if (windowWidth >= 910) {
+      toggleSidebar(true);
     }
   }, [windowWidth]);
   const handleClick = (event) => {
