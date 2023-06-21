@@ -406,7 +406,7 @@ const Calender = () => {
           }}
           className="  flex flex-col justify-center items-center gap-5">
           <div className=" w-full ">
-            <div className="w-[400px] flex justify-center gap-3 flex-col items-center">
+            <div className=" flex justify-center gap-3 flex-col items-center">
               <label htmlFor="eventInput" className=" text-teal-600">
                 Type to create your event
               </label>
